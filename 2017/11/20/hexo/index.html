@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello Hexo | Superman Bin&#39;s Blog</title>
+  <title>Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="搭建个人博客Hexo并托管至github上搭建环境:  1.node.js (因为Hexo是基于node.js框架) 参考下载地址(http://www.w3cschool.cc/nodejs/nodejs-install-setup.html) 2.git (目的是将hexo项目托管到github上) 参考下载地址：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Hexo">
+<meta property="og:title" content="Superman Bin&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/2017/11/20/hexo/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
 <meta property="og:description" content="搭建个人博客Hexo并托管至github上搭建环境:  1.node.js (因为Hexo是基于node.js框架) 参考下载地址(http://www.w3cschool.cc/nodejs/nodejs-install-setup.html) 2.git (目的是将hexo项目托管到github上) 参考下载地址：(http://git-scm.com/download/)  ####安装He">
-<meta property="og:updated_time" content="2017-11-20T05:34:08.697Z">
+<meta property="og:updated_time" content="2017-11-20T06:36:31.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Hexo">
+<meta name="twitter:title" content="Superman Bin&#39;s Blog">
 <meta name="twitter:description" content="搭建个人博客Hexo并托管至github上搭建环境:  1.node.js (因为Hexo是基于node.js框架) 参考下载地址(http://www.w3cschool.cc/nodejs/nodejs-install-setup.html) 2.git (目的是将hexo项目托管到github上) 参考下载地址：(http://git-scm.com/download/)  ####安装He">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
@@ -160,21 +160,6 @@
             <article id="post-hexo" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello Hexo
-    </h1>
-  
-
-        
-        <a href="/2017/11/20/hexo/" class="archive-article-date">
-  	<time datetime="2017-11-20T05:33:23.551Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="搭建个人博客Hexo并托管至github上"><a href="#搭建个人博客Hexo并托管至github上" class="headerlink" title="搭建个人博客Hexo并托管至github上"></a>搭建个人博客Hexo并托管至github上</h3><h4 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境:"></a>搭建环境:</h4><blockquote>
@@ -195,6 +180,13 @@ $ hexo s # 或者hexo server，可以在http://localhost:4000/ 查看
 </code></pre><p>#####说明:</p>
 <blockquote>
 <p>1.hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹<br>2.hexo server (hexo s) 启动本地web服务，用于博客的预览<br>3.hexo deploy (hexo d) 部署播客到远端（比如github, heroku等平台）</p>
+</blockquote>
+<p>#####安装主题</p>
+<blockquote>
+<p>1.hexo clean<br>2.git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<p>#####启用主题<br>修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为yilia。 </p>
+<p>#####更新主题</p>
+<p>cd themes/yilia<br>git pull #在yilia下操作</p>
 </blockquote>
 
       
