@@ -155,6 +155,68 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ceshi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/21/ceshi/">ceshi</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/21/ceshi/" class="archive-article-date">
+  	<time datetime="2017-11-21T04:57:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/21/ceshi/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-React" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,15 +237,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1.组件(基本)</p>
-<p>######1.1定义组件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 名字 <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">     <span class="keyword">return</span> &lt;span&gt;111&lt;/span&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#####1.2使用组件</p>
-<blockquote>
-<p>就跟标签一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;span&gt;111&lt;/span&gt;,</span><br><span class="line">    oDiv</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+        <h2 id="1-组件-基本"><a href="#1-组件-基本" class="headerlink" title="1.组件(基本)"></a>1.组件(基本)</h2><h6 id="1-1定义组件"><a href="#1-1定义组件" class="headerlink" title="1.1定义组件"></a>1.1定义组件</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 名字 <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">     <span class="keyword">return</span> &lt;span&gt;111&lt;/span&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-2使用组件"><a href="#1-2使用组件" class="headerlink" title="1.2使用组件"></a>1.2使用组件</h5><blockquote>
+<p>就跟标签一样 </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;名字/&gt;,</span><br><span class="line">    oDiv</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>##2.组件(有属性)</p>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;span&gt;<span class="number">111</span>&lt;<span class="regexp">/span&gt;,</span></span><br><span class="line"><span class="regexp">    oDiv</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;名字/&gt;,</span><br><span class="line">    oDiv</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="2-组件-有属性"><a href="#2-组件-有属性" class="headerlink" title="2.组件(有属性)"></a>2.组件(有属性)</h2>
       
 
       
