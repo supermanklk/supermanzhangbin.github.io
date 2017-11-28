@@ -6,18 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Superman Bin&#39;s Blog</title>
+  <title>qemu镜像 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面: ">
+  <meta name="description" content="QEMU支持的镜像文件格式目前，QEMU支持的镜像文件格式非常多，可以通过命令来查看。例1：查看QEMU支持的镜像文件格式。 #root@kvm-host:~# qemu-img -h Supported formats: vvfat vpc vmdk vhdx vdi sheepdog sheepdog sheepd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Superman Bin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/win/index.html">
+<meta property="og:title" content="qemu镜像">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/qemu镜像/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
-<meta property="og:description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面:  shutdown -s -t -5 &amp;gt;&amp;gt; 确定 &amp;gt;&amp;gt; 名称 &amp;gt;&amp;gt; 你会发现在桌面有一个 名称.ex">
-<meta property="og:updated_time" content="2017-11-22T12:29:16.526Z">
+<meta property="og:description" content="QEMU支持的镜像文件格式目前，QEMU支持的镜像文件格式非常多，可以通过命令来查看。例1：查看QEMU支持的镜像文件格式。 #root@kvm-host:~# qemu-img -h Supported formats: vvfat vpc vmdk vhdx vdi sheepdog sheepdog sheepdog rbd raw host_cdrom host_floppy host_d">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-d838235a34470b6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-8d1b666439f52e50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-2fd3a9793e23e14d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-488512bdced4fab6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-27df6d7a5873f989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-9bea50e34c4ceb40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-6b3a5b32c4902f98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-091791d1c9f4e282.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-ef9ebbd4b41a0d99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-8da3025eac51f065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-957ee8716bd1027b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-28T03:41:12.542Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Superman Bin&#39;s Blog">
-<meta name="twitter:description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面:  shutdown -s -t -5 &amp;gt;&amp;gt; 确定 &amp;gt;&amp;gt; 名称 &amp;gt;&amp;gt; 你会发现在桌面有一个 名称.ex">
+<meta name="twitter:title" content="qemu镜像">
+<meta name="twitter:description" content="QEMU支持的镜像文件格式目前，QEMU支持的镜像文件格式非常多，可以通过命令来查看。例1：查看QEMU支持的镜像文件格式。 #root@kvm-host:~# qemu-img -h Supported formats: vvfat vpc vmdk vhdx vdi sheepdog sheepdog sheepdog rbd raw host_cdrom host_floppy host_d">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9132651-d838235a34470b6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -157,15 +169,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-win" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-qemu镜像" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      qemu镜像
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/qemu镜像/" class="archive-article-date">
+  	<time datetime="2017-11-28T02:51:44.353Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="带你学会玩Win系统小技巧"><a href="#带你学会玩Win系统小技巧" class="headerlink" title="带你学会玩Win系统小技巧"></a>带你学会玩Win系统小技巧</h2><h3 id="1-关机烦恼"><a href="#1-关机烦恼" class="headerlink" title="1.关机烦恼"></a>1.关机烦恼</h3><h4 id="你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘"><a href="#你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘" class="headerlink" title="你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘"></a>你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘</h4><blockquote>
-<p>鼠标右键 &gt;&gt; 新建 &gt;&gt; 快捷方式 &gt;&gt; 在[请键入对象的位置]里面: <strong> shutdown -s -t -5</strong> &gt;&gt; 确定 &gt;&gt; 名称 &gt;&gt; 你会发现<br>在桌面有一个 名称.exe<br>你还可以改变图标 名称.exe 右键 &gt;&gt; 更改图标<br>你还可以增加快捷键 名称.exe 右键 &gt;&gt; 快捷键 </p>
-</blockquote>
-<h3 id="2-bat脚本命令删除文件夹"><a href="#2-bat脚本命令删除文件夹" class="headerlink" title="2.bat脚本命令删除文件夹"></a>2.bat脚本命令删除文件夹</h3><h4 id="如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了"><a href="#如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了" class="headerlink" title="如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了"></a>如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了</h4><h4 id="因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空"><a href="#因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空" class="headerlink" title="因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)"></a>因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)</h4><h4 id="缺点-文件大的情况下比较慢-等我有空在看看如何优化实现"><a href="#缺点-文件大的情况下比较慢-等我有空在看看如何优化实现" class="headerlink" title="缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现"></a>缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">##### 删除文件夹田雨下所有内容 </span><br><span class="line">del /f/s/q f:\tianyu\*.*</span><br><span class="line">##### 删除文件夹tianyu</span><br><span class="line">rd /q/s f:\tianyu\ </span><br><span class="line">##### 创建文件夹tianyu</span><br><span class="line">md f:\tianyu </span><br><span class="line">##### 拷贝f下zhangbin文件夹所有内容到 f盘tianyu下的文件夹</span><br><span class="line">xcopy f:\zhangbin\*.* f:\tianyu\ /e/h</span><br></pre></td></tr></table></figure>
+        <p>QEMU支持的镜像文件格式<br>目前，QEMU支持的镜像文件格式非常多，可以通过命令来查看。<br>例1：查看QEMU支持的镜像文件格式。</p>
+<p>#root@kvm-host:~# qemu-img -h<br><img src="http://upload-images.jianshu.io/upload_images/9132651-d838235a34470b6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>Supported formats: vvfat vpc vmdk vhdx vdi sheepdog sheepdog sheepdog rbd raw host_cdrom host_floppy host_device file qed qcow2 qcow parallels nbd nbd nbd dmg tftp ftps ftp https http cow cloop bochs blkverify blkdebug<br>表1中列出了常用的虚拟机及其支持的镜像格式，如下：<br>表1 常见虚拟机及其支持的镜像格式<br>虚拟机    raw    qcow2    vmdk    qed    vdi    vhd<br>KVM    √    √    √    √    √<br>XEN    √    √    √            √<br>VMware            √<br>Virtualbox            √        √    √</p>
+<p>例2：通过创建qcow2和raw文件来对比这两种镜像。</p>
+<p>#root@kvm-host:~# qemu-img create -f qcow2 test.qcow2 10G<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-8d1b666439f52e50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>Formatting ‘test.qcow2’, fmt=qcow2 size=10737418240 encryption=off cluster_size=65536 lazy_refcounts=off </p>
+<p>#root@kvm-host:~# qemu-img create -f raw test.raw 10G<br>Formatting ‘test.raw’, fmt=raw size=10737418240<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-2fd3a9793e23e14d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>对比两种格式的文件的实际大小以及占用空间大小如下：</p>
+<p>#root@kvm-host:~# ll -sh test.*<br>     <img src="http://upload-images.jianshu.io/upload_images/9132651-488512bdced4fab6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>196K -rw-r–r– 1 root root 193K  3月 24 12:12 test.qcow2<br> 0 -rw-r–r– 1 root root  10G  3月 24 12:13 test.raw<br><img src="http://upload-images.jianshu.io/upload_images/9132651-27df6d7a5873f989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>#root@kvm-host:~# stat test.raw</p>
+<p>File: ‘test.raw’<br>Size: 10737418240    Blocks: 0          IO Block: 4096   regular file<br>Device: 802h/2050d    Inode: 18489967    Links: 1<br>Access: (0644/-rw-r–r–)  Uid: (    0/    root)   Gid: (    0/    root)<br>Access: 2015-03-24 12:13:08.407107872 +0800<br>Modify: 2015-03-24 12:13:08.407107872 +0800<br>Change: 2015-03-24 12:13:08.407107872 +0800<br> Birth: -</p>
+<p>#root@kvm-host:~#  stat test.qcow2<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-9bea50e34c4ceb40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>  File: ‘test.qcow2’<br>  Size: 197120        Blocks: 392        IO Block: 4096   regular file<br>Device: 802h/2050d    Inode: 18489966    Links: 1<br>Access: (0644/-rw-r–r–)  Uid: (    0/    root)   Gid: (    0/    root)<br>Access: 2015-03-24 12:12:51.735108394 +0800<br>Modify: 2015-03-24 12:12:51.735108394 +0800<br>Change: 2015-03-24 12:12:51.735108394 +0800<br> Birth: -<br>从上述输出可以看出，qcow2格式的镜像文件大小为197120字节，占用392块Blocks。而raw格式的文件是一个稀疏文件，没有占用磁盘空间。<br>qemu-img命令<br>qemu-img是QEMU的磁盘管理工具。<br>（1）check [-f fmt] filename<br>check命令用来对磁盘镜像文件进行一致性检查，查找镜像文件中的错误。参数-f fmt是指定文件的格式，如果不指定格式，qemu-img会自动检测，filename是磁盘镜像文件的名称（包括路径）。目前仅支持对“qcow2”、“qed”、“vdi”格式文件的检查。<br>例1：对镜像文件进行一致性检查。</p>
+<p>#root@kvm-host:~# qemu-img check ubuntu.img<br>  <img src="http://upload-images.jianshu.io/upload_images/9132651-6b3a5b32c4902f98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>No errors were found on the image.<br>98942/491520 = 20.13% allocated, 7.98% fragmented, 0.00% compressed clusters<br>Image end offset: 6486425600<br>（2）snapshot [-l | -a snapshot | -c snapshot | -d snapshot] filename<br>snapshot命令主要用来操作镜像文件中的快照，快照这个功能只支持qcow2格式，raw不支持。快照的主要参数说明：<br>“-l”参数是查询并列出镜像文件中的所有快照；<br>“-a snapshot”参数是让镜像文件使用某个快照；<br>“-c snapshot”参数是创建一个快照；<br>“-d”参数是删除一个快照。<br>注意，创建磁盘快照时客户机需要处理关闭的状态。<br>例2：针对qcow2格式的文件，先创建一个快照，使用它，最后删除这个快照。</p>
+<p>#root@kvm-host:~# qemu-img snapshot -c base ubuntu.img</p>
+<p>#root@kvm-host:~# qemu-img snapshot -l ubuntu.img<br><img src="http://upload-images.jianshu.io/upload_images/9132651-091791d1c9f4e282.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>Snapshot list:<br>ID        TAG             VM SIZE                DATE      VM CLOCK<br>1         base                  0          2015-03-23 15:41:44   00:00:00.000</p>
+<p>#root@kvm-host:~# qemu-img snapshot -a 1 ubuntu.img</p>
+<p>#root@kvm-host:~# qemu-img snapshot -l ubuntu.img<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-ef9ebbd4b41a0d99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>Snapshot list:<br>ID        TAG          VM SIZE                DATE       VM CLOCK<br>1         base                0          2015-03-23 15:41:44   00:00:00.000</p>
+<p>#root@kvm-host:~# qemu-img snapshot -d 1 ubuntu.img</p>
+<p>#root@kvm-host:~# qemu-img snapshot -l ubuntu.img</p>
+<p>例3：为raw格式的文件创建一个快照。</p>
+<p>#root@kvm-host:~# qemu-img snapshot -c base ubuntu.raw<br>qemu-img: Could not create snapshot ‘base’: -95 (Operation not supported)</p>
+<p>根据以上输出结果可以看出，raw格式的文件不支持快照功能。<br>（3）resize filename [+|-]size<br>resize命令主要用来改变镜像文件的大小。“+”用于增加镜像文件的大小，而“-”用于减少镜像文件的大小，而size也支持K、M、G、T等单位。注意，在缩小镜像的大小之前，需要确保客户机中的文件系统有空余空间，否则会丢失数据。在增加了镜像文件大小后，也需启动客户机到里面去应用分区工具进行相应的操作才能真正让客户机使用到增加后的镜像空间。不过使用resize命令之前最好做好备份，否则失败的话，可能会导致镜像文件无法正常使用而造成数据丢失。另外，qcow2格式文件不支持缩小镜像的操作。<br>例4：使用resize命令来增加和减少镜像文件的大小。<br>原来的镜像信息：</p>
+<p>#root@kvm-host:~# qemu-img info ubuntu.img<br>image: ubuntu.img<br>file format: qcow2<br>virtual size: 30G (32212254720 bytes)<br>disk size: 6.0G<br>cluster_size: 65536<br>Format specific information:<br>compat: 1.1<br>lazy refcounts: false<br>为一个30G的qcow2镜像增加2GB空间。</p>
+<p>#root@kvm-host:~# qemu-img resize ubuntu.img +2G<br>mage resized.</p>
+<p>#root@kvm-host:~# qemu-img info ubuntu.img<br>image: ubuntu.img<br>file format: qcow2<br>virtual size: 32G (34359738368 bytes)<br>disk size: 6.0G<br>cluster_size: 65536<br>Format specific information:<br>compat: 1.1<br>lazy refcounts: false<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-8da3025eac51f065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>将一个32G的qcow2镜像减少1GB空间。</p>
+<p>#root@kvm-host:~# qemu-img resize ubuntu.img -1G<br>qemu-img: qcow2 doesn’t support shrinking images yet<br>qemu-img: This image does not support resize<br>由于qcow2格式文件不支持缩小镜像的操作，因此无法减少空间。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9132651-957ee8716bd1027b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
       
 
       
@@ -205,6 +262,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -254,7 +322,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/23/win/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/28/qemu镜像/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +336,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/28/进程亲和性操作/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/28/Ubuntu下编译Linux内核模块8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          �����׺��Բ���
+          Ubuntu下编译Linux内核模块8
         
       </div>
     </a>
   
   
-    <a href="/2017/11/21/Hexocom/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo如何绑定域名</div>
+    <a href="/2017/11/28/CPU配置实验/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CPU配置实验</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -299,6 +367,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -309,7 +390,7 @@
   
 
   
-  <div id="SOHUCS" sid="win" ></div> 
+  <div id="SOHUCS" sid="qemu镜像" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

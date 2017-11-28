@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Superman Bin&#39;s Blog</title>
+  <title>Ubuntu下编译Linux内核模块8 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面: ">
+  <meta name="description" content="一、实验目的(1)了解Linux内核文件。(2)掌握KVM内核模块结构。(3)掌握编译配置内核模块的基本方法。(4)熟悉Makefile文件的相关配置。二、实验原理在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题： （1）什么是内核">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Superman Bin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/win/index.html">
+<meta property="og:title" content="Ubuntu下编译Linux内核模块8">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/Ubuntu下编译Linux内核模块8/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
-<meta property="og:description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面:  shutdown -s -t -5 &amp;gt;&amp;gt; 确定 &amp;gt;&amp;gt; 名称 &amp;gt;&amp;gt; 你会发现在桌面有一个 名称.ex">
-<meta property="og:updated_time" content="2017-11-22T12:29:16.526Z">
+<meta property="og:description" content="一、实验目的(1)了解Linux内核文件。(2)掌握KVM内核模块结构。(3)掌握编译配置内核模块的基本方法。(4)熟悉Makefile文件的相关配置。二、实验原理在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题： （1）什么是内核模块：内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-1a946c303e1a8d09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-4c459d2e23b44004.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-28T03:34:55.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Superman Bin&#39;s Blog">
-<meta name="twitter:description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面:  shutdown -s -t -5 &amp;gt;&amp;gt; 确定 &amp;gt;&amp;gt; 名称 &amp;gt;&amp;gt; 你会发现在桌面有一个 名称.ex">
+<meta name="twitter:title" content="Ubuntu下编译Linux内核模块8">
+<meta name="twitter:description" content="一、实验目的(1)了解Linux内核文件。(2)掌握KVM内核模块结构。(3)掌握编译配置内核模块的基本方法。(4)熟悉Makefile文件的相关配置。二、实验原理在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题： （1）什么是内核模块：内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -157,15 +161,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-win" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Ubuntu下编译Linux内核模块8" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ubuntu下编译Linux内核模块8
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/Ubuntu下编译Linux内核模块8/" class="archive-article-date">
+  	<time datetime="2017-11-28T02:51:50.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="带你学会玩Win系统小技巧"><a href="#带你学会玩Win系统小技巧" class="headerlink" title="带你学会玩Win系统小技巧"></a>带你学会玩Win系统小技巧</h2><h3 id="1-关机烦恼"><a href="#1-关机烦恼" class="headerlink" title="1.关机烦恼"></a>1.关机烦恼</h3><h4 id="你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘"><a href="#你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘" class="headerlink" title="你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘"></a>你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘</h4><blockquote>
-<p>鼠标右键 &gt;&gt; 新建 &gt;&gt; 快捷方式 &gt;&gt; 在[请键入对象的位置]里面: <strong> shutdown -s -t -5</strong> &gt;&gt; 确定 &gt;&gt; 名称 &gt;&gt; 你会发现<br>在桌面有一个 名称.exe<br>你还可以改变图标 名称.exe 右键 &gt;&gt; 更改图标<br>你还可以增加快捷键 名称.exe 右键 &gt;&gt; 快捷键 </p>
-</blockquote>
-<h3 id="2-bat脚本命令删除文件夹"><a href="#2-bat脚本命令删除文件夹" class="headerlink" title="2.bat脚本命令删除文件夹"></a>2.bat脚本命令删除文件夹</h3><h4 id="如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了"><a href="#如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了" class="headerlink" title="如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了"></a>如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了</h4><h4 id="因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空"><a href="#因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空" class="headerlink" title="因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)"></a>因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)</h4><h4 id="缺点-文件大的情况下比较慢-等我有空在看看如何优化实现"><a href="#缺点-文件大的情况下比较慢-等我有空在看看如何优化实现" class="headerlink" title="缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现"></a>缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">##### 删除文件夹田雨下所有内容 </span><br><span class="line">del /f/s/q f:\tianyu\*.*</span><br><span class="line">##### 删除文件夹tianyu</span><br><span class="line">rd /q/s f:\tianyu\ </span><br><span class="line">##### 创建文件夹tianyu</span><br><span class="line">md f:\tianyu </span><br><span class="line">##### 拷贝f下zhangbin文件夹所有内容到 f盘tianyu下的文件夹</span><br><span class="line">xcopy f:\zhangbin\*.* f:\tianyu\ /e/h</span><br></pre></td></tr></table></figure>
+        <h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><h4 id="1-了解Linux内核文件。"><a href="#1-了解Linux内核文件。" class="headerlink" title="(1)了解Linux内核文件。"></a>(1)了解Linux内核文件。</h4><h4 id="2-掌握KVM内核模块结构。"><a href="#2-掌握KVM内核模块结构。" class="headerlink" title="(2)掌握KVM内核模块结构。"></a>(2)掌握KVM内核模块结构。</h4><h4 id="3-掌握编译配置内核模块的基本方法。"><a href="#3-掌握编译配置内核模块的基本方法。" class="headerlink" title="(3)掌握编译配置内核模块的基本方法。"></a>(3)掌握编译配置内核模块的基本方法。</h4><h4 id="4-熟悉Makefile文件的相关配置。"><a href="#4-熟悉Makefile文件的相关配置。" class="headerlink" title="(4)熟悉Makefile文件的相关配置。"></a>(4)熟悉Makefile文件的相关配置。</h4><h2 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h2><p>在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题：</p>
+<h4 id="（1）什么是内核模块："><a href="#（1）什么是内核模块：" class="headerlink" title="（1）什么是内核模块："></a>（1）什么是内核模块：</h4><p>内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在内核运行时动态的安装或卸载。他和函数不同，函数一般运行完自动退出内存，而内核模块一旦被安装，则驻留在内存，直到被卸载或内核停止运行。</p>
+<h4 id="（2）模块的程序结构："><a href="#（2）模块的程序结构：" class="headerlink" title="（2）模块的程序结构："></a>（2）模块的程序结构：</h4><p>模块最基本的的两个函数，一个是模块加载函数，这个是安装模块时被系统自动调用的函数，通过module_init宏来指定。另一个是模块卸载函数，这是在卸载模块时被系统自动调用的函数，通过module_exit来指定。</p>
+<h2 id="三、实验环境"><a href="#三、实验环境" class="headerlink" title="三、实验环境"></a>三、实验环境</h2><p>VMware虚拟化工具为VMware Workstation12.5.0，Ubuntu16.04-desktop。</p>
+<h2 id="四、实验内容及步骤"><a href="#四、实验内容及步骤" class="headerlink" title="四、实验内容及步骤"></a>四、实验内容及步骤</h2><h4 id="1、安装宿主机操作系统"><a href="#1、安装宿主机操作系统" class="headerlink" title="1、安装宿主机操作系统"></a>1、安装宿主机操作系统</h4><p>宿主机</p>
+<h4 id="2、VMWare创建ubuntu系统的虚拟机"><a href="#2、VMWare创建ubuntu系统的虚拟机" class="headerlink" title="2、VMWare创建ubuntu系统的虚拟机"></a>2、VMWare创建ubuntu系统的虚拟机</h4><h4 id="3、程序编写"><a href="#3、程序编写" class="headerlink" title="3、程序编写"></a>3、程序编写</h4><p>建立hello.c文件，输入程序如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;linux/kernel.h&gt; </span><br><span class="line"></span><br><span class="line">#include &lt;linux/init.h&gt; </span><br><span class="line"></span><br><span class="line">#include &lt;linux/module.h&gt; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">"DualBSD/GPL"</span>);</span><br><span class="line"></span><br><span class="line">MODULE_AUTHOR(<span class="string">"CC"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> int hello_init(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">printk(KERN_WARNING<span class="string">"Helloworld!\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> hello_exit(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">printk(KERN_INFO<span class="string">"Goodbye,cruelworld!"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">module_init(hello_init);</span><br><span class="line"></span><br><span class="line">module_exit(hello_exit);</span><br></pre></td></tr></table></figure></p>
+<h4 id="4、模块编译"><a href="#4、模块编译" class="headerlink" title="4、模块编译"></a>4、模块编译</h4><p>对于模块的编译，我们一般使用Makefile文件，而不是直接命令行编译，建立Makefile文件如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ifneq ($(KERNELRELEASE),)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">obj-m := hello.o</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">KDIR := <span class="regexp">/lib/m</span>odules/$(shell uname -r)/build</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line"></span><br><span class="line">   make -C $(KDIR) M=$(shell pwd) modules</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line"></span><br><span class="line">   rm -f *.ko *.o *.mod.o *.mod.c *.symvers</span><br><span class="line"></span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+<p>注：KERNELRELEASE是在内核源码的顶层Makefile中定义的一个变量，在第一次读取执行此Makefile时，KERNELRELEASE没有被定义，所以make将读取执行else之后的内容，如果make的目标是clean，直接执行clean操作，然后结束。当make的目标为all时，-C $(KDIR)指明跳转到内核源码目录下读取那里的Makefile；M=$(PWD) 表明然后返回到当前目录继续读入、执行当前的Makefile。当从内核源码目录返回时，KERNELRELEASE已被定义，kbuild也被启动去解析kbuild语法的语句，make将继续读取else之前的内容。else之前的内容为kbuild语法的语句，指明模块源码中各文件的依赖关系。obj-m := hello.o表示编译连接后将生成hello.o模块。</p>
+<p>将两个文件保存到同一目录下。使用sudo make，等编译完成后，即可在目录下看到hello.ko文件。<br><img src="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>使用modinfo查看ko依赖模块。</p>
+<h4 id="5、安装与卸载模块"><a href="#5、安装与卸载模块" class="headerlink" title="5、安装与卸载模块"></a>5、安装与卸载模块</h4><p><img src="http://upload-images.jianshu.io/upload_images/9132651-1a946c303e1a8d09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><p>使用sudo insmod hello.ko即可安装模块到内核里。</p>
+<p>这时使用，lsmod命令，即可看到加载上的hello模块。卸载模块使用rmmod命令。安装与卸载内核时打印的信息一般不在终端上，使用tail /var/log/syslog即可看到内核打印信息。<br><img src="http://upload-images.jianshu.io/upload_images/9132651-4c459d2e23b44004.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
       
 
       
@@ -205,6 +235,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -254,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/23/win/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/28/Ubuntu下编译Linux内核模块8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +309,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/28/进程亲和性操作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          �����׺��Բ���
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/21/Hexocom/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo如何绑定域名</div>
+    <a href="/2017/11/28/qemu镜像/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">qemu镜像</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -299,6 +331,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-number">1.</span> <span class="toc-text">一、实验目的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-了解Linux内核文件。"><span class="toc-number">1.0.1.</span> <span class="toc-text">(1)了解Linux内核文件。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-掌握KVM内核模块结构。"><span class="toc-number">1.0.2.</span> <span class="toc-text">(2)掌握KVM内核模块结构。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-掌握编译配置内核模块的基本方法。"><span class="toc-number">1.0.3.</span> <span class="toc-text">(3)掌握编译配置内核模块的基本方法。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-熟悉Makefile文件的相关配置。"><span class="toc-number">1.0.4.</span> <span class="toc-text">(4)熟悉Makefile文件的相关配置。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）什么是内核模块："><span class="toc-number">2.0.1.</span> <span class="toc-text">（1）什么是内核模块：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）模块的程序结构："><span class="toc-number">2.0.2.</span> <span class="toc-text">（2）模块的程序结构：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实验环境"><span class="toc-number">3.</span> <span class="toc-text">三、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验内容及步骤"><span class="toc-number">4.</span> <span class="toc-text">四、实验内容及步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装宿主机操作系统"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、安装宿主机操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、VMWare创建ubuntu系统的虚拟机"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、VMWare创建ubuntu系统的虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、程序编写"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、程序编写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、模块编译"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、模块编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、安装与卸载模块"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、安装与卸载模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、"><span class="toc-number">4.0.6.</span> <span class="toc-text">6、</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -309,7 +354,7 @@
   
 
   
-  <div id="SOHUCS" sid="win" ></div> 
+  <div id="SOHUCS" sid="Ubuntu下编译Linux内核模块8" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Superman Bin&#39;s Blog</title>
+  <title>设备直接分配 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面: ">
+  <meta name="description" content="1.Box建一个盒子modprobe pci_stub 2.Look查看网卡情况lsmod | grep stub 3.Find inFo查看版本信息lspci -Dn -s 02:07.0查看谁正在用这个网卡 who is use itlspci -K -s 02:07.0 4.将网卡放进盒子echo  -n “80">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Superman Bin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/2017/11/23/win/index.html">
+<meta property="og:title" content="设备直接分配">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/设备直接分配/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
-<meta property="og:description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面:  shutdown -s -t -5 &amp;gt;&amp;gt; 确定 &amp;gt;&amp;gt; 名称 &amp;gt;&amp;gt; 你会发现在桌面有一个 名称.ex">
-<meta property="og:updated_time" content="2017-11-22T12:29:16.526Z">
+<meta property="og:description" content="1.Box建一个盒子modprobe pci_stub 2.Look查看网卡情况lsmod | grep stub 3.Find inFo查看版本信息lspci -Dn -s 02:07.0查看谁正在用这个网卡 who is use itlspci -K -s 02:07.0 4.将网卡放进盒子echo  -n “8086 100f” /sys/bus/pci/drivers/pci-stub/n">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-e941004a4ba0d3c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-af1f760e96b4676c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-3b52584d4a61de38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-148eafb97b1b4b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-6f9843960019a7b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-f8291dded6880126.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-28T04:10:33.207Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Superman Bin&#39;s Blog">
-<meta name="twitter:description" content="带你学会玩Win系统小技巧1.关机烦恼你有没有每次关机就需要鼠标点击开始–&amp;gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘 鼠标右键 &amp;gt;&amp;gt; 新建 &amp;gt;&amp;gt; 快捷方式 &amp;gt;&amp;gt; 在[请键入对象的位置]里面:  shutdown -s -t -5 &amp;gt;&amp;gt; 确定 &amp;gt;&amp;gt; 名称 &amp;gt;&amp;gt; 你会发现在桌面有一个 名称.ex">
+<meta name="twitter:title" content="设备直接分配">
+<meta name="twitter:description" content="1.Box建一个盒子modprobe pci_stub 2.Look查看网卡情况lsmod | grep stub 3.Find inFo查看版本信息lspci -Dn -s 02:07.0查看谁正在用这个网卡 who is use itlspci -K -s 02:07.0 4.将网卡放进盒子echo  -n “8086 100f” /sys/bus/pci/drivers/pci-stub/n">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9132651-e941004a4ba0d3c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -157,15 +164,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-win" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-设备直接分配" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设备直接分配
+    </h1>
+  
+
+        
+        <a href="/2017/11/28/设备直接分配/" class="archive-article-date">
+  	<time datetime="2017-11-28T02:51:43.157Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="带你学会玩Win系统小技巧"><a href="#带你学会玩Win系统小技巧" class="headerlink" title="带你学会玩Win系统小技巧"></a>带你学会玩Win系统小技巧</h2><h3 id="1-关机烦恼"><a href="#1-关机烦恼" class="headerlink" title="1.关机烦恼"></a>1.关机烦恼</h3><h4 id="你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘"><a href="#你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘" class="headerlink" title="你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘"></a>你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘</h4><blockquote>
-<p>鼠标右键 &gt;&gt; 新建 &gt;&gt; 快捷方式 &gt;&gt; 在[请键入对象的位置]里面: <strong> shutdown -s -t -5</strong> &gt;&gt; 确定 &gt;&gt; 名称 &gt;&gt; 你会发现<br>在桌面有一个 名称.exe<br>你还可以改变图标 名称.exe 右键 &gt;&gt; 更改图标<br>你还可以增加快捷键 名称.exe 右键 &gt;&gt; 快捷键 </p>
-</blockquote>
-<h3 id="2-bat脚本命令删除文件夹"><a href="#2-bat脚本命令删除文件夹" class="headerlink" title="2.bat脚本命令删除文件夹"></a>2.bat脚本命令删除文件夹</h3><h4 id="如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了"><a href="#如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了" class="headerlink" title="如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了"></a>如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了</h4><h4 id="因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空"><a href="#因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空" class="headerlink" title="因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)"></a>因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)</h4><h4 id="缺点-文件大的情况下比较慢-等我有空在看看如何优化实现"><a href="#缺点-文件大的情况下比较慢-等我有空在看看如何优化实现" class="headerlink" title="缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现"></a>缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">##### 删除文件夹田雨下所有内容 </span><br><span class="line">del /f/s/q f:\tianyu\*.*</span><br><span class="line">##### 删除文件夹tianyu</span><br><span class="line">rd /q/s f:\tianyu\ </span><br><span class="line">##### 创建文件夹tianyu</span><br><span class="line">md f:\tianyu </span><br><span class="line">##### 拷贝f下zhangbin文件夹所有内容到 f盘tianyu下的文件夹</span><br><span class="line">xcopy f:\zhangbin\*.* f:\tianyu\ /e/h</span><br></pre></td></tr></table></figure>
+        <h1 id="1-Box建一个盒子"><a href="#1-Box建一个盒子" class="headerlink" title="1.Box建一个盒子"></a>1.Box建一个盒子</h1><p>modprobe pci_stub</p>
+<h1 id="2-Look查看网卡情况"><a href="#2-Look查看网卡情况" class="headerlink" title="2.Look查看网卡情况"></a>2.Look查看网卡情况</h1><p>lsmod | grep stub<br><img src="http://upload-images.jianshu.io/upload_images/9132651-e941004a4ba0d3c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-af1f760e96b4676c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-3b52584d4a61de38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="3-Find-inFo查看版本信息"><a href="#3-Find-inFo查看版本信息" class="headerlink" title="3.Find inFo查看版本信息"></a>3.Find inFo查看版本信息</h1><p>lspci -Dn -s 02:07.0<br>查看谁正在用这个网卡<br><img src="http://upload-images.jianshu.io/upload_images/9132651-148eafb97b1b4b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>who is use it<br>lspci -K -s 02:07.0</p>
+<h1 id="4-将网卡放进盒子"><a href="#4-将网卡放进盒子" class="headerlink" title="4.将网卡放进盒子"></a>4.将网卡放进盒子</h1><p>echo  -n “8086 100f” /sys/bus/pci/drivers/pci-stub/new_id<br>echo 0000:02:07.0 &gt; /sys/bus/pci/devices/0000:02:07.0/driver/unbind<br>echo 0000:02:07.0 &gt; /sys/bus/pci/drivers/pci-stub/bind<br><img src="http://upload-images.jianshu.io/upload_images/9132651-6f9843960019a7b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-f8291dded6880126.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="5-ok-因为虚拟不支持-必须在真机上使用-命令如下"><a href="#5-ok-因为虚拟不支持-必须在真机上使用-命令如下" class="headerlink" title="5.ok 因为虚拟不支持,必须在真机上使用,命令如下"></a>5.ok 因为虚拟不支持,必须在真机上使用,命令如下</h1><p>2.网卡直接分配<br>1）选择需要直接分配的网卡<br>lspci –s 08:00.0<br>2）隐藏该网卡<br>3）启动客户机时分配网卡</p>
+<p>4）在客户机中查看网卡的工作情况</p>
+<p>5）关闭客户机后，在宿主机中恢复前面被隐藏的网卡</p>
+<p>qemu-system-x86_64 –enable-kvm -m 2048 -smp 4 -boot order=cd -hda /home/ck/mking/ubuntu.img -monitor stdio -vnc :0 -vga vmware</p>
+
       
 
       
@@ -205,6 +233,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -254,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/23/win/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/28/设备直接分配/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +307,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/28/进程亲和性操作/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/28/virtio实验balloon/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          �����׺��Բ���
+          virtio实验balloon
         
       </div>
     </a>
   
   
-    <a href="/2017/11/21/Hexocom/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo如何绑定域名</div>
+    <a href="/2017/11/28/内存设置大页/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">内存设置大页</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -299,6 +338,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Box建一个盒子"><span class="toc-number">1.</span> <span class="toc-text">1.Box建一个盒子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Look查看网卡情况"><span class="toc-number">2.</span> <span class="toc-text">2.Look查看网卡情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Find-inFo查看版本信息"><span class="toc-number">3.</span> <span class="toc-text">3.Find inFo查看版本信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-将网卡放进盒子"><span class="toc-number">4.</span> <span class="toc-text">4.将网卡放进盒子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-ok-因为虚拟不支持-必须在真机上使用-命令如下"><span class="toc-number">5.</span> <span class="toc-text">5.ok 因为虚拟不支持,必须在真机上使用,命令如下</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -309,7 +361,7 @@
   
 
   
-  <div id="SOHUCS" sid="win" ></div> 
+  <div id="SOHUCS" sid="设备直接分配" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
