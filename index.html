@@ -722,7 +722,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/进程亲和性操作/">�����׺��Բ���</a>
+      <a class="article-title" href="/2017/11/28/进程亲和性操作/">进程亲和性操作</a>
     </h1>
   
 
@@ -735,16 +735,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> �������׺��Ժ�cpu��<br>һ��    ��������ʱ������߼�cpuר�Ź�һ���ͻ���ʹ�á�</p>
+        <p> 处理器亲和性和cpu绑定<br>一、    启动宿主机时隔离出逻辑cpu专门供一个客户机使用。</p>
 <p>/boot/grub/grub.cfg<br>chmod a+w grub.cfg<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-051dec33c100d7e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>3���ط���Ҫ�޸�<br>linux    /boot/vmlinuz-4.2.0-27-generic root=UUID=d0e76f93-1856-4f3b-9aa0-f0e1cc2ec708 isolcpus=2,3</p>
-<p>��Linux�ں�grub�����ļ��м��ϡ�isolcpus=2,3������</p>
-<p>������Ч<br>reboot<br>���������м���Ƿ����ɹ���<br>ps �CeLo psr | grep 2 | wc �Cl<br>ps �CeLo psr | grep 3 | wc �Cl</p>
+<p>3个地方需要修改<br>linux    /boot/vmlinuz-4.2.0-27-generic root=UUID=d0e76f93-1856-4f3b-9aa0-f0e1cc2ec708 isolcpus=2,3</p>
+<p>在Linux内核grub配置文件中加上“isolcpus=2,3”参数</p>
+<p>重启生效<br>reboot<br>在宿主机中检查是否隔离成功：<br>ps –eLo psr | grep 2 | wc –l<br>ps –eLo psr | grep 3 | wc –l</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/9132651-41194176511a97d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>ps �CeLo ruser,pid,ppid,lwp,psr,args | awk ��{if($5==2) print $0}��<br>ps �CeLo ruser,pid,ppid,lwp,psr,args | awk ��{if($5==3) print $0}��</p>
-<p>������cpu<br>��Ӳ���-daemonize<br>qemu-system-x86_64 -enable-kvm -m 1024 -smp 2 -boot order=cd -hda ubuntu.img -vga vmware -daemonize<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-4b3989cac9f61c84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>ps –eLo ruser,pid,ppid,lwp,psr,args | awk ‘{if($5==2) print $0}’<br>ps –eLo ruser,pid,ppid,lwp,psr,args | awk ‘{if($5==3) print $0}’</p>
+<p>二、绑定cpu<br>启动加参数-daemonize<br>qemu-system-x86_64 -enable-kvm -m 1024 -smp 2 -boot order=cd -hda ubuntu.img -vga vmware -daemonize<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-4b3989cac9f61c84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p>ps -eLo ruser,pid,ppid,lwp,psr,args | grep qemu | grep -v grep</p>
-<p>��<br>taskset �Cp 0x4 3963<br>taskset �Cp 0x4 3967<br>taskset �Cp 0x8 3968</p>
+<p>绑定<br>taskset –p 0x4 3963<br>taskset –p 0x4 3967<br>taskset –p 0x8 3968</p>
 <p>1   1<br>2   10<br>3   11<br>4   100</p>
 <p>CPU0    000001    1  20<br>CPU1    000010    2  21<br>CPU2    000100    4  22<br>CPU3    001000    8  23</p>
 
@@ -761,7 +761,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/�Ƽ���//" class="article-tag-list-link color1">�Ƽ���</a>
+        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
         		</li>
       		
 		</ul>
