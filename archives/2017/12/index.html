@@ -6,22 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Ubuntu下编译Linux内核模块8 | Superman Bin&#39;s Blog</title>
+  <title>Archives: 2017/12 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、实验目的(1)了解Linux内核文件。(2)掌握KVM内核模块结构。(3)掌握编译配置内核模块的基本方法。(4)熟悉Makefile文件的相关配置。二、实验原理在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题： （1）什么是内核">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu下编译Linux内核模块8">
-<meta property="og:url" content="http://yoursite.com/2017/11/28/Ubuntu下编译Linux内核模块8/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Superman Bin&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
-<meta property="og:description" content="一、实验目的(1)了解Linux内核文件。(2)掌握KVM内核模块结构。(3)掌握编译配置内核模块的基本方法。(4)熟悉Makefile文件的相关配置。二、实验原理在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题： （1）什么是内核模块：内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-1a946c303e1a8d09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-4c459d2e23b44004.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-28T03:34:55.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu下编译Linux内核模块8">
-<meta name="twitter:description" content="一、实验目的(1)了解Linux内核文件。(2)掌握KVM内核模块结构。(3)掌握编译配置内核模块的基本方法。(4)熟悉Makefile文件的相关配置。二、实验原理在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题： （1）什么是内核模块：内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Superman Bin&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -161,213 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Ubuntu下编译Linux内核模块8" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Ubuntu下编译Linux内核模块8
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/04/zhangxvefeng/" class="archive-article-date">
+  	<time datetime="2017-12-04T12:52:46.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/04/zhangxvefeng/">张雪峰考研那些事</a>
     </h1>
   
 
-        
-        <a href="/2017/11/28/Ubuntu下编译Linux内核模块8/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:50.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><h4 id="1-了解Linux内核文件。"><a href="#1-了解Linux内核文件。" class="headerlink" title="(1)了解Linux内核文件。"></a>(1)了解Linux内核文件。</h4><h4 id="2-掌握KVM内核模块结构。"><a href="#2-掌握KVM内核模块结构。" class="headerlink" title="(2)掌握KVM内核模块结构。"></a>(2)掌握KVM内核模块结构。</h4><h4 id="3-掌握编译配置内核模块的基本方法。"><a href="#3-掌握编译配置内核模块的基本方法。" class="headerlink" title="(3)掌握编译配置内核模块的基本方法。"></a>(3)掌握编译配置内核模块的基本方法。</h4><h4 id="4-熟悉Makefile文件的相关配置。"><a href="#4-熟悉Makefile文件的相关配置。" class="headerlink" title="(4)熟悉Makefile文件的相关配置。"></a>(4)熟悉Makefile文件的相关配置。</h4><h2 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h2><p>在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题：</p>
-<h4 id="（1）什么是内核模块："><a href="#（1）什么是内核模块：" class="headerlink" title="（1）什么是内核模块："></a>（1）什么是内核模块：</h4><p>内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在内核运行时动态的安装或卸载。他和函数不同，函数一般运行完自动退出内存，而内核模块一旦被安装，则驻留在内存，直到被卸载或内核停止运行。</p>
-<h4 id="（2）模块的程序结构："><a href="#（2）模块的程序结构：" class="headerlink" title="（2）模块的程序结构："></a>（2）模块的程序结构：</h4><p>模块最基本的的两个函数，一个是模块加载函数，这个是安装模块时被系统自动调用的函数，通过module_init宏来指定。另一个是模块卸载函数，这是在卸载模块时被系统自动调用的函数，通过module_exit来指定。</p>
-<h2 id="三、实验环境"><a href="#三、实验环境" class="headerlink" title="三、实验环境"></a>三、实验环境</h2><p>VMware虚拟化工具为VMware Workstation12.5.0，Ubuntu16.04-desktop。</p>
-<h2 id="四、实验内容及步骤"><a href="#四、实验内容及步骤" class="headerlink" title="四、实验内容及步骤"></a>四、实验内容及步骤</h2><h4 id="1、安装宿主机操作系统"><a href="#1、安装宿主机操作系统" class="headerlink" title="1、安装宿主机操作系统"></a>1、安装宿主机操作系统</h4><p>宿主机</p>
-<h4 id="2、VMWare创建ubuntu系统的虚拟机"><a href="#2、VMWare创建ubuntu系统的虚拟机" class="headerlink" title="2、VMWare创建ubuntu系统的虚拟机"></a>2、VMWare创建ubuntu系统的虚拟机</h4><h4 id="3、程序编写"><a href="#3、程序编写" class="headerlink" title="3、程序编写"></a>3、程序编写</h4><p>建立hello.c文件，输入程序如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;linux/kernel.h&gt; </span><br><span class="line"></span><br><span class="line">#include &lt;linux/init.h&gt; </span><br><span class="line"></span><br><span class="line">#include &lt;linux/module.h&gt; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">"DualBSD/GPL"</span>);</span><br><span class="line"></span><br><span class="line">MODULE_AUTHOR(<span class="string">"CC"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> int hello_init(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">printk(KERN_WARNING<span class="string">"Helloworld!\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> hello_exit(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">printk(KERN_INFO<span class="string">"Goodbye,cruelworld!"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">module_init(hello_init);</span><br><span class="line"></span><br><span class="line">module_exit(hello_exit);</span><br></pre></td></tr></table></figure></p>
-<h4 id="4、模块编译"><a href="#4、模块编译" class="headerlink" title="4、模块编译"></a>4、模块编译</h4><p>对于模块的编译，我们一般使用Makefile文件，而不是直接命令行编译，建立Makefile文件如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ifneq ($(KERNELRELEASE),)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">obj-m := hello.o</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">KDIR := <span class="regexp">/lib/m</span>odules/$(shell uname -r)/build</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line"></span><br><span class="line">   make -C $(KDIR) M=$(shell pwd) modules</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line"></span><br><span class="line">   rm -f *.ko *.o *.mod.o *.mod.c *.symvers</span><br><span class="line"></span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
-<p>注：KERNELRELEASE是在内核源码的顶层Makefile中定义的一个变量，在第一次读取执行此Makefile时，KERNELRELEASE没有被定义，所以make将读取执行else之后的内容，如果make的目标是clean，直接执行clean操作，然后结束。当make的目标为all时，-C $(KDIR)指明跳转到内核源码目录下读取那里的Makefile；M=$(PWD) 表明然后返回到当前目录继续读入、执行当前的Makefile。当从内核源码目录返回时，KERNELRELEASE已被定义，kbuild也被启动去解析kbuild语法的语句，make将继续读取else之前的内容。else之前的内容为kbuild语法的语句，指明模块源码中各文件的依赖关系。obj-m := hello.o表示编译连接后将生成hello.o模块。</p>
-<p>将两个文件保存到同一目录下。使用sudo make，等编译完成后，即可在目录下看到hello.ko文件。<br><img src="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>使用modinfo查看ko依赖模块。</p>
-<h4 id="5、安装与卸载模块"><a href="#5、安装与卸载模块" class="headerlink" title="5、安装与卸载模块"></a>5、安装与卸载模块</h4><p><img src="http://upload-images.jianshu.io/upload_images/9132651-1a946c303e1a8d09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><p>使用sudo insmod hello.ko即可安装模块到内核里。</p>
-<p>这时使用，lsmod命令，即可看到加载上的hello模块。卸载模块使用rmmod命令。安装与卸载内核时打印的信息一般不在终端上，使用tail /var/log/syslog即可看到内核打印信息。<br><img src="http://upload-images.jianshu.io/upload_images/9132651-4c459d2e23b44004.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/AliPay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/WeChatPay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
+        			<a href="/categories/研//" class="article-tag-list-link color2">研</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/28/Ubuntu下编译Linux内核模块8/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2017/11/28/qemu镜像/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">qemu镜像</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、实验目的"><span class="toc-number">1.</span> <span class="toc-text">一、实验目的</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-了解Linux内核文件。"><span class="toc-number">1.0.1.</span> <span class="toc-text">(1)了解Linux内核文件。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-掌握KVM内核模块结构。"><span class="toc-number">1.0.2.</span> <span class="toc-text">(2)掌握KVM内核模块结构。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-掌握编译配置内核模块的基本方法。"><span class="toc-number">1.0.3.</span> <span class="toc-text">(3)掌握编译配置内核模块的基本方法。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-熟悉Makefile文件的相关配置。"><span class="toc-number">1.0.4.</span> <span class="toc-text">(4)熟悉Makefile文件的相关配置。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实验原理"><span class="toc-number">2.</span> <span class="toc-text">二、实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）什么是内核模块："><span class="toc-number">2.0.1.</span> <span class="toc-text">（1）什么是内核模块：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）模块的程序结构："><span class="toc-number">2.0.2.</span> <span class="toc-text">（2）模块的程序结构：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、实验环境"><span class="toc-number">3.</span> <span class="toc-text">三、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、实验内容及步骤"><span class="toc-number">4.</span> <span class="toc-text">四、实验内容及步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、安装宿主机操作系统"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、安装宿主机操作系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、VMWare创建ubuntu系统的虚拟机"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、VMWare创建ubuntu系统的虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、程序编写"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、程序编写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、模块编译"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、模块编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、安装与卸载模块"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、安装与卸载模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、"><span class="toc-number">4.0.6.</span> <span class="toc-text">6、</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Ubuntu下编译Linux内核模块8" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyt3J8IJB",
-        conf: "0df7c4ad1c1feff109a5a2e6a86d9c4d"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -390,8 +229,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

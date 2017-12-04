@@ -155,41 +155,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Ubuntu下编译Linux内核模块8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-zhangxvefeng" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/Ubuntu下编译Linux内核模块8/">Ubuntu下编译Linux内核模块8</a>
+      <a class="article-title" href="/2017/12/04/zhangxvefeng/">张雪峰考研那些事</a>
     </h1>
   
 
         
-        <a href="/2017/11/28/Ubuntu下编译Linux内核模块8/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:50.449Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
+        <a href="/2017/12/04/zhangxvefeng/" class="archive-article-date">
+  	<time datetime="2017-12-04T12:52:46.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h2><h4 id="1-了解Linux内核文件。"><a href="#1-了解Linux内核文件。" class="headerlink" title="(1)了解Linux内核文件。"></a>(1)了解Linux内核文件。</h4><h4 id="2-掌握KVM内核模块结构。"><a href="#2-掌握KVM内核模块结构。" class="headerlink" title="(2)掌握KVM内核模块结构。"></a>(2)掌握KVM内核模块结构。</h4><h4 id="3-掌握编译配置内核模块的基本方法。"><a href="#3-掌握编译配置内核模块的基本方法。" class="headerlink" title="(3)掌握编译配置内核模块的基本方法。"></a>(3)掌握编译配置内核模块的基本方法。</h4><h4 id="4-熟悉Makefile文件的相关配置。"><a href="#4-熟悉Makefile文件的相关配置。" class="headerlink" title="(4)熟悉Makefile文件的相关配置。"></a>(4)熟悉Makefile文件的相关配置。</h4><h2 id="二、实验原理"><a href="#二、实验原理" class="headerlink" title="二、实验原理"></a>二、实验原理</h2><p>在了解Linux内核的基础上，掌握KVM内核的模块结构，编写一个简单的内核模块代码，并完成编译、加载等过程。同时，需要弄清楚以下两个问题：</p>
-<h4 id="（1）什么是内核模块："><a href="#（1）什么是内核模块：" class="headerlink" title="（1）什么是内核模块："></a>（1）什么是内核模块：</h4><p>内核模块属于内核的组成部分，但是其本身不被编译进内核文件，可以根据需求，在内核运行时动态的安装或卸载。他和函数不同，函数一般运行完自动退出内存，而内核模块一旦被安装，则驻留在内存，直到被卸载或内核停止运行。</p>
-<h4 id="（2）模块的程序结构："><a href="#（2）模块的程序结构：" class="headerlink" title="（2）模块的程序结构："></a>（2）模块的程序结构：</h4><p>模块最基本的的两个函数，一个是模块加载函数，这个是安装模块时被系统自动调用的函数，通过module_init宏来指定。另一个是模块卸载函数，这是在卸载模块时被系统自动调用的函数，通过module_exit来指定。</p>
-<h2 id="三、实验环境"><a href="#三、实验环境" class="headerlink" title="三、实验环境"></a>三、实验环境</h2><p>VMware虚拟化工具为VMware Workstation12.5.0，Ubuntu16.04-desktop。</p>
-<h2 id="四、实验内容及步骤"><a href="#四、实验内容及步骤" class="headerlink" title="四、实验内容及步骤"></a>四、实验内容及步骤</h2><h4 id="1、安装宿主机操作系统"><a href="#1、安装宿主机操作系统" class="headerlink" title="1、安装宿主机操作系统"></a>1、安装宿主机操作系统</h4><p>宿主机</p>
-<h4 id="2、VMWare创建ubuntu系统的虚拟机"><a href="#2、VMWare创建ubuntu系统的虚拟机" class="headerlink" title="2、VMWare创建ubuntu系统的虚拟机"></a>2、VMWare创建ubuntu系统的虚拟机</h4><h4 id="3、程序编写"><a href="#3、程序编写" class="headerlink" title="3、程序编写"></a>3、程序编写</h4><p>建立hello.c文件，输入程序如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;linux/kernel.h&gt; </span><br><span class="line"></span><br><span class="line">#include &lt;linux/init.h&gt; </span><br><span class="line"></span><br><span class="line">#include &lt;linux/module.h&gt; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">MODULE_LICENSE(<span class="string">"DualBSD/GPL"</span>);</span><br><span class="line"></span><br><span class="line">MODULE_AUTHOR(<span class="string">"CC"</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> int hello_init(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">printk(KERN_WARNING<span class="string">"Helloworld!\n"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> hello_exit(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">printk(KERN_INFO<span class="string">"Goodbye,cruelworld!"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">module_init(hello_init);</span><br><span class="line"></span><br><span class="line">module_exit(hello_exit);</span><br></pre></td></tr></table></figure></p>
-<h4 id="4、模块编译"><a href="#4、模块编译" class="headerlink" title="4、模块编译"></a>4、模块编译</h4><p>对于模块的编译，我们一般使用Makefile文件，而不是直接命令行编译，建立Makefile文件如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ifneq ($(KERNELRELEASE),)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">obj-m := hello.o</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">KDIR := <span class="regexp">/lib/m</span>odules/$(shell uname -r)/build</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line"></span><br><span class="line">   make -C $(KDIR) M=$(shell pwd) modules</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line"></span><br><span class="line">   rm -f *.ko *.o *.mod.o *.mod.c *.symvers</span><br><span class="line"></span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
-<p>注：KERNELRELEASE是在内核源码的顶层Makefile中定义的一个变量，在第一次读取执行此Makefile时，KERNELRELEASE没有被定义，所以make将读取执行else之后的内容，如果make的目标是clean，直接执行clean操作，然后结束。当make的目标为all时，-C $(KDIR)指明跳转到内核源码目录下读取那里的Makefile；M=$(PWD) 表明然后返回到当前目录继续读入、执行当前的Makefile。当从内核源码目录返回时，KERNELRELEASE已被定义，kbuild也被启动去解析kbuild语法的语句，make将继续读取else之前的内容。else之前的内容为kbuild语法的语句，指明模块源码中各文件的依赖关系。obj-m := hello.o表示编译连接后将生成hello.o模块。</p>
-<p>将两个文件保存到同一目录下。使用sudo make，等编译完成后，即可在目录下看到hello.ko文件。<br><img src="http://upload-images.jianshu.io/upload_images/9132651-e91dba3daf4d4eb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>使用modinfo查看ko依赖模块。</p>
-<h4 id="5、安装与卸载模块"><a href="#5、安装与卸载模块" class="headerlink" title="5、安装与卸载模块"></a>5、安装与卸载模块</h4><p><img src="http://upload-images.jianshu.io/upload_images/9132651-1a946c303e1a8d09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="6、"><a href="#6、" class="headerlink" title="6、"></a>6、</h4><p>使用sudo insmod hello.ko即可安装模块到内核里。</p>
-<p>这时使用，lsmod命令，即可看到加载上的hello模块。卸载模块使用rmmod命令。安装与卸载内核时打印的信息一般不在终端上，使用tail /var/log/syslog即可看到内核打印信息。<br><img src="http://upload-images.jianshu.io/upload_images/9132651-4c459d2e23b44004.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
+        <h1 id="求职"><a href="#求职" class="headerlink" title="求职"></a>求职</h1><h4 id="1-在求职的过程中不要问有没有五险一金的事情-一般事业单位为员工必须提供五险一金的事情"><a href="#1-在求职的过程中不要问有没有五险一金的事情-一般事业单位为员工必须提供五险一金的事情" class="headerlink" title="1.在求职的过程中不要问有没有五险一金的事情,一般事业单位为员工必须提供五险一金的事情."></a>1.在求职的过程中不要问有没有五险一金的事情,一般事业单位为员工必须提供五险一金的事情.</h4><h1 id="考研"><a href="#考研" class="headerlink" title="考研"></a>考研</h1><h4 id="1-报考院校的时候-先问问该学校该专业是否先前录取过2本院校的学生-因为有些学校只收211或者985"><a href="#1-报考院校的时候-先问问该学校该专业是否先前录取过2本院校的学生-因为有些学校只收211或者985" class="headerlink" title="1.报考院校的时候,先问问该学校该专业是否先前录取过2本院校的学生(因为有些学校只收211或者985)"></a>1.报考院校的时候,先问问该学校该专业是否先前录取过2本院校的学生(因为有些学校只收211或者985)</h4><h4 id="2-考研部分一本-二本-只分211和985"><a href="#2-考研部分一本-二本-只分211和985" class="headerlink" title="2.考研部分一本,二本.只分211和985"></a>2.考研部分一本,二本.只分211和985</h4><h4 id="3-只有自己有能力就不怕跳槽-首先是自己的付出与回报是成正比的"><a href="#3-只有自己有能力就不怕跳槽-首先是自己的付出与回报是成正比的" class="headerlink" title="3.只有自己有能力就不怕跳槽,首先是自己的付出与回报是成正比的."></a>3.只有自己有能力就不怕跳槽,首先是自己的付出与回报是成正比的.</h4>
       
 
       
@@ -203,7 +189,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
+        			<a href="/categories/研//" class="article-tag-list-link color2">研</a>
         		</li>
       		
 		</ul>
@@ -212,565 +198,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/Ubuntu下编译Linux内核模块8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-qemu镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/qemu镜像/">qemu镜像</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/qemu镜像/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:44.353Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>QEMU支持的镜像文件格式<br>目前，QEMU支持的镜像文件格式非常多，可以通过命令来查看。<br>例1：查看QEMU支持的镜像文件格式。</p>
-<p>#root@kvm-host:~# qemu-img -h<br><img src="http://upload-images.jianshu.io/upload_images/9132651-d838235a34470b6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>Supported formats: vvfat vpc vmdk vhdx vdi sheepdog sheepdog sheepdog rbd raw host_cdrom host_floppy host_device file qed qcow2 qcow parallels nbd nbd nbd dmg tftp ftps ftp https http cow cloop bochs blkverify blkdebug<br>表1中列出了常用的虚拟机及其支持的镜像格式，如下：<br>表1 常见虚拟机及其支持的镜像格式<br>虚拟机    raw    qcow2    vmdk    qed    vdi    vhd<br>KVM    √    √    √    √    √<br>XEN    √    √    √            √<br>VMware            √<br>Virtualbox            √        √    √</p>
-<p>例2：通过创建qcow2和raw文件来对比这两种镜像。</p>
-<p>#root@kvm-host:~# qemu-img create -f qcow2 test.qcow2 10G<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-8d1b666439f52e50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>Formatting ‘test.qcow2’, fmt=qcow2 size=10737418240 encryption=off cluster_size=65536 lazy_refcounts=off </p>
-<p>#root@kvm-host:~# qemu-img create -f raw test.raw 10G<br>Formatting ‘test.raw’, fmt=raw size=10737418240<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-2fd3a9793e23e14d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>对比两种格式的文件的实际大小以及占用空间大小如下：</p>
-<p>#root@kvm-host:~# ll -sh test.*<br>     <img src="http://upload-images.jianshu.io/upload_images/9132651-488512bdced4fab6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>196K -rw-r–r– 1 root root 193K  3月 24 12:12 test.qcow2<br> 0 -rw-r–r– 1 root root  10G  3月 24 12:13 test.raw<br><img src="http://upload-images.jianshu.io/upload_images/9132651-27df6d7a5873f989.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>#root@kvm-host:~# stat test.raw</p>
-<p>File: ‘test.raw’<br>Size: 10737418240    Blocks: 0          IO Block: 4096   regular file<br>Device: 802h/2050d    Inode: 18489967    Links: 1<br>Access: (0644/-rw-r–r–)  Uid: (    0/    root)   Gid: (    0/    root)<br>Access: 2015-03-24 12:13:08.407107872 +0800<br>Modify: 2015-03-24 12:13:08.407107872 +0800<br>Change: 2015-03-24 12:13:08.407107872 +0800<br> Birth: -</p>
-<p>#root@kvm-host:~#  stat test.qcow2<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-9bea50e34c4ceb40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>  File: ‘test.qcow2’<br>  Size: 197120        Blocks: 392        IO Block: 4096   regular file<br>Device: 802h/2050d    Inode: 18489966    Links: 1<br>Access: (0644/-rw-r–r–)  Uid: (    0/    root)   Gid: (    0/    root)<br>Access: 2015-03-24 12:12:51.735108394 +0800<br>Modify: 2015-03-24 12:12:51.735108394 +0800<br>Change: 2015-03-24 12:12:51.735108394 +0800<br> Birth: -<br>从上述输出可以看出，qcow2格式的镜像文件大小为197120字节，占用392块Blocks。而raw格式的文件是一个稀疏文件，没有占用磁盘空间。<br>qemu-img命令<br>qemu-img是QEMU的磁盘管理工具。<br>（1）check [-f fmt] filename<br>check命令用来对磁盘镜像文件进行一致性检查，查找镜像文件中的错误。参数-f fmt是指定文件的格式，如果不指定格式，qemu-img会自动检测，filename是磁盘镜像文件的名称（包括路径）。目前仅支持对“qcow2”、“qed”、“vdi”格式文件的检查。<br>例1：对镜像文件进行一致性检查。</p>
-<p>#root@kvm-host:~# qemu-img check ubuntu.img<br>  <img src="http://upload-images.jianshu.io/upload_images/9132651-6b3a5b32c4902f98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>No errors were found on the image.<br>98942/491520 = 20.13% allocated, 7.98% fragmented, 0.00% compressed clusters<br>Image end offset: 6486425600<br>（2）snapshot [-l | -a snapshot | -c snapshot | -d snapshot] filename<br>snapshot命令主要用来操作镜像文件中的快照，快照这个功能只支持qcow2格式，raw不支持。快照的主要参数说明：<br>“-l”参数是查询并列出镜像文件中的所有快照；<br>“-a snapshot”参数是让镜像文件使用某个快照；<br>“-c snapshot”参数是创建一个快照；<br>“-d”参数是删除一个快照。<br>注意，创建磁盘快照时客户机需要处理关闭的状态。<br>例2：针对qcow2格式的文件，先创建一个快照，使用它，最后删除这个快照。</p>
-<p>#root@kvm-host:~# qemu-img snapshot -c base ubuntu.img</p>
-<p>#root@kvm-host:~# qemu-img snapshot -l ubuntu.img<br><img src="http://upload-images.jianshu.io/upload_images/9132651-091791d1c9f4e282.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>Snapshot list:<br>ID        TAG             VM SIZE                DATE      VM CLOCK<br>1         base                  0          2015-03-23 15:41:44   00:00:00.000</p>
-<p>#root@kvm-host:~# qemu-img snapshot -a 1 ubuntu.img</p>
-<p>#root@kvm-host:~# qemu-img snapshot -l ubuntu.img<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-ef9ebbd4b41a0d99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>Snapshot list:<br>ID        TAG          VM SIZE                DATE       VM CLOCK<br>1         base                0          2015-03-23 15:41:44   00:00:00.000</p>
-<p>#root@kvm-host:~# qemu-img snapshot -d 1 ubuntu.img</p>
-<p>#root@kvm-host:~# qemu-img snapshot -l ubuntu.img</p>
-<p>例3：为raw格式的文件创建一个快照。</p>
-<p>#root@kvm-host:~# qemu-img snapshot -c base ubuntu.raw<br>qemu-img: Could not create snapshot ‘base’: -95 (Operation not supported)</p>
-<p>根据以上输出结果可以看出，raw格式的文件不支持快照功能。<br>（3）resize filename [+|-]size<br>resize命令主要用来改变镜像文件的大小。“+”用于增加镜像文件的大小，而“-”用于减少镜像文件的大小，而size也支持K、M、G、T等单位。注意，在缩小镜像的大小之前，需要确保客户机中的文件系统有空余空间，否则会丢失数据。在增加了镜像文件大小后，也需启动客户机到里面去应用分区工具进行相应的操作才能真正让客户机使用到增加后的镜像空间。不过使用resize命令之前最好做好备份，否则失败的话，可能会导致镜像文件无法正常使用而造成数据丢失。另外，qcow2格式文件不支持缩小镜像的操作。<br>例4：使用resize命令来增加和减少镜像文件的大小。<br>原来的镜像信息：</p>
-<p>#root@kvm-host:~# qemu-img info ubuntu.img<br>image: ubuntu.img<br>file format: qcow2<br>virtual size: 30G (32212254720 bytes)<br>disk size: 6.0G<br>cluster_size: 65536<br>Format specific information:<br>compat: 1.1<br>lazy refcounts: false<br>为一个30G的qcow2镜像增加2GB空间。</p>
-<p>#root@kvm-host:~# qemu-img resize ubuntu.img +2G<br>mage resized.</p>
-<p>#root@kvm-host:~# qemu-img info ubuntu.img<br>image: ubuntu.img<br>file format: qcow2<br>virtual size: 32G (34359738368 bytes)<br>disk size: 6.0G<br>cluster_size: 65536<br>Format specific information:<br>compat: 1.1<br>lazy refcounts: false<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-8da3025eac51f065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>将一个32G的qcow2镜像减少1GB空间。</p>
-<p>#root@kvm-host:~# qemu-img resize ubuntu.img -1G<br>qemu-img: qcow2 doesn’t support shrinking images yet<br>qemu-img: This image does not support resize<br>由于qcow2格式文件不支持缩小镜像的操作，因此无法减少空间。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9132651-957ee8716bd1027b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/qemu镜像/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CPU配置实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/CPU配置实验/">CPU配置实验</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/CPU配置实验/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在QEMU中，“-smp”参数是为了配置客户机的SMP系统。在命令行中，关于配置SMP系统的参数如下：<br>-smp [cpus=]n[,maxcpus=cpus][,cores=cores][,threads=threads][,sockets=sockets]<br>主要参数说明：<br>&gt;<br>    cpus用来设置客户机中使用的逻辑CPU的数量（默认值是1）；<br>    maxcpus用来设置客户机的最大CPU的数量，最多支持255个CPU。其中，包含启动时处于下线状态的CPU数目；<br>    cores用来设置在一个socket上CPU core的数量；<br>    threads用来设置在一个CPU core上线程的数量；<br>    sockets用来设置客户机中看到的总socket的数量。<br>下面通过几个命令行例子来演示一下如何在客户机中使用SMP技术。</p>
-<h2 id="例1：不加smp参数，使用其默认值1，模拟了只有一个逻辑CPU的客户机系统。"><a href="#例1：不加smp参数，使用其默认值1，模拟了只有一个逻辑CPU的客户机系统。" class="headerlink" title="例1：不加smp参数，使用其默认值1，模拟了只有一个逻辑CPU的客户机系统。"></a>例1：不加smp参数，使用其默认值1，模拟了只有一个逻辑CPU的客户机系统。</h2><p>#root@kvm-host:~# qemu-system-x86_64 ubuntu.img</p>
-<h2 id="在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下："><a href="#在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下：" class="headerlink" title="在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下："></a>在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下：</h2><p>#root@kvm-host:~# ps –efL | grep qemu<br>root   2915  2884  2915  1    2 13:39 pts/1    00:00:06 qemu-system-x86_64 -drive file=ubuntu.img -m 1024 -net nic -net tap,ifname=tap1 –enable-kvm<br>root   2915  2884  2942  5    2 13:39 pts/1    00:00:18 qemu-system-x86_64 -drive file=ubuntu.img -m 1024 -net nic -net tap,ifname=tap1 –enable-kvm<br>root   3008  2974  3008  0    1 13:44 pts/5    00:00:00 grep –color=auto qemu</p>
-<h2 id="从上面的输出可以看出，客户机的进程ID是2915，它产生了一个线程作为客户机的vCPU运行在宿主机中，这个线程ID是2942。其中，ps命令主要用于监控后台进程的工作情况，-e参数指定选择所有进程和环境变量，-f参数指定选择打印出完全的各列，-L参数指定打印出线程的ID和线程的个数。"><a href="#从上面的输出可以看出，客户机的进程ID是2915，它产生了一个线程作为客户机的vCPU运行在宿主机中，这个线程ID是2942。其中，ps命令主要用于监控后台进程的工作情况，-e参数指定选择所有进程和环境变量，-f参数指定选择打印出完全的各列，-L参数指定打印出线程的ID和线程的个数。" class="headerlink" title="从上面的输出可以看出，客户机的进程ID是2915，它产生了一个线程作为客户机的vCPU运行在宿主机中，这个线程ID是2942。其中，ps命令主要用于监控后台进程的工作情况，-e参数指定选择所有进程和环境变量，-f参数指定选择打印出完全的各列，-L参数指定打印出线程的ID和线程的个数。"></a>从上面的输出可以看出，客户机的进程ID是2915，它产生了一个线程作为客户机的vCPU运行在宿主机中，这个线程ID是2942。其中，ps命令主要用于监控后台进程的工作情况，-e参数指定选择所有进程和环境变量，-f参数指定选择打印出完全的各列，-L参数指定打印出线程的ID和线程的个数。</h2><p>在客户机中，可使用两种常用的方式查看CPU情况，具体如下：<br>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo<br>root@ubuntu:/home/zhangbin/Videos# cat /proc/cpuinfo<br>processor    : 0<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 0<br>siblings    : 2<br>core id        : 0<br>cpu cores    : 2<br>apicid        : 0<br>initial apicid    : 0<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 1<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 0<br>siblings    : 2<br>core id        : 1<br>cpu cores    : 2<br>apicid        : 1<br>initial apicid    : 1<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 2<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 1<br>siblings    : 2<br>core id        : 0<br>cpu cores    : 2<br>apicid        : 2<br>initial apicid    : 2<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 3<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 1<br>siblings    : 2<br>core id        : 1<br>cpu cores    : 2<br>apicid        : 3<br>initial apicid    : 3<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 4<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 2<br>siblings    : 2<br>core id        : 0<br>cpu cores    : 2<br>apicid        : 4<br>initial apicid    : 4<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 5<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 2<br>siblings    : 2<br>core id        : 1<br>cpu cores    : 2<br>apicid        : 5<br>initial apicid    : 5<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 6<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 3<br>siblings    : 2<br>core id        : 0<br>cpu cores    : 2<br>apicid        : 6<br>initial apicid    : 6<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<p>processor    : 7<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 60<br>model name    : Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz<br>stepping    : 3<br>microcode    : 0x19<br>cpu MHz        : 3591.729<br>cache size    : 8192 KB<br>physical id    : 3<br>siblings    : 2<br>core id        : 1<br>cpu cores    : 2<br>apicid        : 7<br>initial apicid    : 7<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 13<br>wp        : yes<br>flags        : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq vmx ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm epb tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 invpcid xsaveopt dtherm ida arat pln pts<br>bugs        :<br>bogomips    : 7183.45<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 42 bits physical, 48 bits virtual<br>power management:</p>
-<h2 id="root-ubuntu-home-zhangbin-Videos"><a href="#root-ubuntu-home-zhangbin-Videos" class="headerlink" title="root@ubuntu:/home/zhangbin/Videos"></a>root@ubuntu:/home/zhangbin/Videos</h2><h2 id="从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU。"><a href="#从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU。" class="headerlink" title="从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU。"></a>从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU。</h2><p>##root@ubuntu:/home/zhangbin/Videos#~# ls sys/devices/system/cpu/<br>cpu0  kernel_max  modalias  online   power    uevent<br>Cpuidld  microcode offline   possible  present</p>
-<h2 id="从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU-cpu0-。"><a href="#从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU-cpu0-。" class="headerlink" title="从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU(cpu0)。"></a>从上面的输出可以看出，客户机系统识别到一个QEMU模拟的CPU(cpu0)。</h2><p>在qemu monitor中，用“info cpus”命令可以看到客户机中CPU状态，具体如下：<br>Info cpus<br>*CPU #0: pc=0xffffffff8104f596 (halted) thread_id=2942<br>(qemu)</p>
-<h2 id="从上面的输出可以看出，只有一个CPU，线程的ID是2942。"><a href="#从上面的输出可以看出，只有一个CPU，线程的ID是2942。" class="headerlink" title="从上面的输出可以看出，只有一个CPU，线程的ID是2942。"></a>从上面的输出可以看出，只有一个CPU，线程的ID是2942。</h2><h2 id="例2：使用smp参数，模拟有两个逻辑CPU的客户机系统。"><a href="#例2：使用smp参数，模拟有两个逻辑CPU的客户机系统。" class="headerlink" title="例2：使用smp参数，模拟有两个逻辑CPU的客户机系统。"></a>例2：使用smp参数，模拟有两个逻辑CPU的客户机系统。</h2><h2 id="root-kvm-host-qemu-system-x86-64-smp-2-maxcpus-4-ubuntu-img"><a href="#root-kvm-host-qemu-system-x86-64-smp-2-maxcpus-4-ubuntu-img" class="headerlink" title="#root@kvm-host:~# qemu-system-x86_64 -smp 2  maxcpus=4  ubuntu.img"></a>#root@kvm-host:~# qemu-system-x86_64 -smp 2  maxcpus=4  ubuntu.img</h2><p>##其中，“-smp 2”表示分配了2个虚拟的CPU，客户机最多可以使用4个CPU，但系统在启动时，只有两个CPU处于开启的状态。</p>
-<h2 id="在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下：-1"><a href="#在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下：-1" class="headerlink" title="在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下："></a>在宿主机中，可以用ps命令来查看QEMU进程和线程，具体如下：</h2><h2 id="root-kvm-host-Ps-–efL-grep-qemu"><a href="#root-kvm-host-Ps-–efL-grep-qemu" class="headerlink" title="#root@kvm-host:~# Ps –efL | grep qemu"></a>#root@kvm-host:~# Ps –efL | grep qemu</h2><p>root 4060  4019  4060  2    3 10:45 pts/1 00:00:02 qemu-system-x86_64 -drive file=ubuntu.img -m 1024 -smp 2 –enable-kvm<br>root 4060  4019  4062 10    3 10:45 pts/1 00:00:13 qemu-system-x86_64 -drive file=ubuntu.img -m 1024 -smp 2 –enable-kvm<br>root 4060  4019  4063  6    3 10:45 pts/1 00:00:08 qemu-system-x86_64 -drive file=ubuntu.img -m 1024 -smp 2 –enable-kvm<br>root  4088  4072  4088  0    1 10:47 pts/23   00:00:00 grep –color=auto qemu</p>
-<h2 id="从上面的输出可以看出，客户机的进程ID是4060，它产生了两个线程作为客户机的vCPU运行在宿主机中，这个线程ID是4062和4063。"><a href="#从上面的输出可以看出，客户机的进程ID是4060，它产生了两个线程作为客户机的vCPU运行在宿主机中，这个线程ID是4062和4063。" class="headerlink" title="从上面的输出可以看出，客户机的进程ID是4060，它产生了两个线程作为客户机的vCPU运行在宿主机中，这个线程ID是4062和4063。"></a>从上面的输出可以看出，客户机的进程ID是4060，它产生了两个线程作为客户机的vCPU运行在宿主机中，这个线程ID是4062和4063。</h2><p>##在客户机中，可使用ls命令来查看CPU情况，具体如下：</p>
-<h2 id="root-ubuntu-home-zhangbin-Videos-ls-sys-devices-system-cpu"><a href="#root-ubuntu-home-zhangbin-Videos-ls-sys-devices-system-cpu" class="headerlink" title="root@ubuntu:/home/zhangbin/Videos#~# ls sys/devices/system/cpu"></a>root@ubuntu:/home/zhangbin/Videos#~# ls sys/devices/system/cpu</h2><p>cpu0  cpufreq  kernel_max  online    present  release<br>cpu1  cpuidle  offline     possible  probe<br>从上面的输出可以看出，在系统启动时，客户机系统只识别到两个QEMU模拟的CPU(cpu0和cpu1)。<br>在qemu monitor中，用“info cpus”命令可以看到客户机中CPU状态，具体如下：<br>(qemu) info cpus</p>
-<ul>
-<li>CPU #0: pc=0xffffffff8103ce4b (halted) thread_id=7136<br>CPU #1: pc=0xffffffff8103ce4b (halted) thread_id=7137<br>(qemu) qemu: terminating on signal 2<br>从上面的输出可以看出，只有两个CPU，线程的ID分别是7136和7137。<h2 id="例3：使用smp参数，模拟有8个逻辑CPU的客户机系统，共有2个CPU-socket，每个socket有两个核，每个核有两个线程。"><a href="#例3：使用smp参数，模拟有8个逻辑CPU的客户机系统，共有2个CPU-socket，每个socket有两个核，每个核有两个线程。" class="headerlink" title="例3：使用smp参数，模拟有8个逻辑CPU的客户机系统，共有2个CPU socket，每个socket有两个核，每个核有两个线程。"></a>例3：使用smp参数，模拟有8个逻辑CPU的客户机系统，共有2个CPU socket，每个socket有两个核，每个核有两个线程。</h2>#root@kvm-host:~# qemu-system-x86_64 -smp 8, sockets=2,cores=2,threads=2<br>ubuntu.img<h2 id="在客户机中，使用cat命令来查看CPU情况，具体如下："><a href="#在客户机中，使用cat命令来查看CPU情况，具体如下：" class="headerlink" title="在客户机中，使用cat命令来查看CPU情况，具体如下："></a>在客户机中，使用cat命令来查看CPU情况，具体如下：</h2>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo | grep ‘processor’ | sort | uniq<br>processor    : 0<br>processor    : 1<br>processor    : 2<br>processor    : 3<br>processor    : 4<br>processor    : 5<br>processor    : 6<br>processor    : 7<br>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo | grep ‘physical id’ | sort | uniq<br>physical id    : 0<br>physical id    : 1<br>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo | grep ‘core id’ | sort | uniq<br>core id    : 0<br>core id    : 1<br>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo | grep ‘cpu cores’ | sort | uniq<br>cpu cores    : 2<br>从上面输出可以，在客户机中有8个逻辑CPU，分别是cpu0-cpu7，共有2个CPU socket，每个socket有两个核，启用了超线程，每个核有两个线程。</li>
-</ul>
-<h2 id="CPU模型"><a href="#CPU模型" class="headerlink" title="CPU模型"></a>CPU模型</h2><h2 id="每一种虚拟机监视器都定义了自己的策略，让客户机有一个默认的CPU模型。有的VMM会简单的将宿主机中的CPU类型和特性直接传递给客户机使用。在默认情况下，QEMU会为客户机提供一个名为qemu64或qemu32的基本CPU模型。虚拟机监视器的这种策略不但可以为CPU特性提供一些高级的过滤功能，还可以将物理平台根据基本CPU模型进行分组，使得客户机在同一组硬件平台上的动态迁移更加平滑和安全。"><a href="#每一种虚拟机监视器都定义了自己的策略，让客户机有一个默认的CPU模型。有的VMM会简单的将宿主机中的CPU类型和特性直接传递给客户机使用。在默认情况下，QEMU会为客户机提供一个名为qemu64或qemu32的基本CPU模型。虚拟机监视器的这种策略不但可以为CPU特性提供一些高级的过滤功能，还可以将物理平台根据基本CPU模型进行分组，使得客户机在同一组硬件平台上的动态迁移更加平滑和安全。" class="headerlink" title="每一种虚拟机监视器都定义了自己的策略，让客户机有一个默认的CPU模型。有的VMM会简单的将宿主机中的CPU类型和特性直接传递给客户机使用。在默认情况下，QEMU会为客户机提供一个名为qemu64或qemu32的基本CPU模型。虚拟机监视器的这种策略不但可以为CPU特性提供一些高级的过滤功能，还可以将物理平台根据基本CPU模型进行分组，使得客户机在同一组硬件平台上的动态迁移更加平滑和安全。"></a>每一种虚拟机监视器都定义了自己的策略，让客户机有一个默认的CPU模型。有的VMM会简单的将宿主机中的CPU类型和特性直接传递给客户机使用。在默认情况下，QEMU会为客户机提供一个名为qemu64或qemu32的基本CPU模型。虚拟机监视器的这种策略不但可以为CPU特性提供一些高级的过滤功能，还可以将物理平台根据基本CPU模型进行分组，使得客户机在同一组硬件平台上的动态迁移更加平滑和安全。</h2><h2 id="例4：通过如下命令来查看当前的QEMU支持的所有CPU模型。"><a href="#例4：通过如下命令来查看当前的QEMU支持的所有CPU模型。" class="headerlink" title="例4：通过如下命令来查看当前的QEMU支持的所有CPU模型。"></a>例4：通过如下命令来查看当前的QEMU支持的所有CPU模型。</h2><h2 id="root-kvm-host-qemu-system-x86-64-cpu"><a href="#root-kvm-host-qemu-system-x86-64-cpu" class="headerlink" title="#root@kvm-host:~# qemu-system-x86_64 -cpu ?"></a>#root@kvm-host:~# qemu-system-x86_64 -cpu ?</h2><p>x86           qemu64  QEMU Virtual CPU version 2.0.0<br>x86           phenom  AMD Phenom(tm) 9550 Quad-Core Processor<br>x86         core2duo  Intel(R) Core(TM)2 Duo CPU     T7700  @ 2.40GHz<br>x86            kvm64  Common KVM processor<br>x86           qemu32  QEMU Virtual CPU version 2.0.0<br>x86            kvm32  Common 32-bit KVM processor<br>x86          coreduo  Genuine Intel(R) CPU           T2600  @ 2.16GHz<br>x86              486<br>x86          pentium<br>x86         pentium2<br>x86         pentium3<br>x86           athlon  QEMU Virtual CPU version 2.0.0<br>x86             n270  Intel(R) Atom(TM) CPU N270   @ 1.60GHz<br>x86           Conroe  Intel Celeron_4x0 (Conroe/Merom Class Core 2)<br>x86           Penryn  Intel Core 2 Duo P9xxx (Penryn Class Core 2)<br>x86          Nehalem  Intel Core i7 9xx (Nehalem Class Core i7)<br>x86         Westmere  Westmere E56xx/L56xx/X56xx (Nehalem-C)<br>x86      SandyBridge  Intel Xeon E312xx (Sandy Bridge)<br>x86          Haswell  Intel Core Processor (Haswell)<br>x86       Opteron_G1  AMD Opteron 240 (Gen 1 Class Opteron)<br>x86       Opteron_G2  AMD Opteron 22xx (Gen 2 Class Opteron)<br>x86       Opteron_G3  AMD Opteron 23xx (Gen 3 Class Opteron)<br>x86       Opteron_G4  AMD Opteron 62xx class CPU<br>x86       Opteron_G5  AMD Opteron 63xx class CPU<br>x86   host  KVM processor with all supported host features (only available in KVM mode)<br>CPU模型是在源代码qemu-kvm.git/target-i386/cpu.c中的结构体数组builtin_x86_defs[]中定义的。<br>在x86-64平台上编译和运行的QEMU，如果不加“-cpu”参数启动，默认采用“qemu64”作为CPU模型。</p>
-<h2 id="例5：不加“-cpu”参数来启动客户机。"><a href="#例5：不加“-cpu”参数来启动客户机。" class="headerlink" title="例5：不加“-cpu”参数来启动客户机。"></a>例5：不加“-cpu”参数来启动客户机。</h2><h2 id="root-kvm-host-qemu-system-x86-64-ubuntu-img"><a href="#root-kvm-host-qemu-system-x86-64-ubuntu-img" class="headerlink" title="#root@kvm-host:~# qemu-system-x86_64 ubuntu.img"></a>#root@kvm-host:~# qemu-system-x86_64 ubuntu.img</h2><p>在客户机上，查看到的CPU信息如下：<br>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo<br>processor    : 0<br>vendor_id    : GenuineIntel<br>cpu family    : 6<br>model        : 6<br>model name    : QEMU Virtual CPU version 2.0.0<br>stepping    : 3<br>microcode    : 0x1<br>cpu MHz        : 3292.522<br>cache size    : 4096 KB<br>physical id    : 0<br>siblings    : 1<br>core id        : 0<br>cpu cores    : 1<br>apicid        : 0<br>initial apicid    : 0<br>fpu        : yes<br>fpu_exception    : yes<br>cpuid level    : 4<br>wp        : yes<br>flags        : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pse36 clflush mmx fxsr sse sse2 syscall nx lm rep_good nopl pni vmx cx16 x2apic popcnt hypervisor lahf_lm vnmi ept<br>bogomips    : 6585.04<br>clflush size    : 64<br>cache_alignment    : 64<br>address sizes    : 40 bits physical, 48 bits virtual<br>power management:<br>从上面的输出可知，客户机中的CPU模型的名称为“QEMU Virtual CPU version 2.0.0”，这是“qemu64”CPU模型的名称。<br>在QEMU中，除了使用默认的CPU模型之外，还可以用“-cpu cpu_model”来指定在客户机中的CPU模型。</p>
-<h2 id="例6：在启动客户机时指定了CPU模型为Penryn。"><a href="#例6：在启动客户机时指定了CPU模型为Penryn。" class="headerlink" title="例6：在启动客户机时指定了CPU模型为Penryn。"></a>例6：在启动客户机时指定了CPU模型为Penryn。</h2><p>#root@kvm-host:~#qemu-system-x86_64 ubuntu.img -cpu Penryn<br>在客户机上，查看到的CPU信息如下：<br>root@ubuntu:/home/zhangbin/Videos#~# cat /proc/cpuinfo<br>processor       : 0<br>vendor_id       : GenuineIntel<br>cpu family      : 6<br>model           : 23<br>model name      : Intel Core 2 Duo P9xxx (Penryn Class Core 2)<br>stepping        : 3<br>microcode       : 0x1<br>cpu MHz         : 3292.520<br>cache size      : 4096 KB<br>fpu             : yes<br>fpu_exception   : yes<br>cpuid level     : 4<br>wp              : yes<br>flags           : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm constant_tsc up rep_good nopl pni ssse3 cx16 sse4_1 x2apic hypervisor lahf_lm<br>bogomips        : 6585.04<br>clflush size    : 64<br>cache_alignment : 64<br>address sizes   : 40 bits physical, 48 bits virtual<br>power management:<br>从上面的输出可知，客户机中的CPU模型的名称为“Intel Core 2 Duo P9xxx (Penryn Class Core 2)”，这是“Penryn”CPU模型的名称。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/CPU配置实验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-virtio实验balloon" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/virtio实验balloon/">virtio实验balloon</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/virtio实验balloon/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:43.407Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>qemu-system-x86_64 -enable-kvm -smp 4 -m 1024 /home/zhangbin/Desktop/ubuntu.img -vga vmware<br>-monitor stdio -balloon virtio<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-9f47038a6416fd5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>[图片上传中…(image.png-a90823-1511842006542-0)]</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9132651-eaca96177ba737c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>qemu-system-x86_64 -enable-kvm -smp 4 -m 1024 /home/zhangbin/Desktop/ubuntu.img -vga vmware<br>-monitor stdio -net nic -net tap</p>
-<p>qemu-system-x86_64 -enable-kvm -smp 4 -m 1024 /home/zhangbin/Desktop/ubuntu.img -vga vmware<br>-monitor stdio -net nic,model=virtio -net tap</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9132651-b880e47d101433a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-27bee9bfca642f7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/virtio实验balloon/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设备直接分配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/设备直接分配/">设备直接分配</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/设备直接分配/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:43.157Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="1-Box建一个盒子"><a href="#1-Box建一个盒子" class="headerlink" title="1.Box建一个盒子"></a>1.Box建一个盒子</h1><p>modprobe pci_stub</p>
-<h1 id="2-Look查看网卡情况"><a href="#2-Look查看网卡情况" class="headerlink" title="2.Look查看网卡情况"></a>2.Look查看网卡情况</h1><p>lsmod | grep stub<br><img src="http://upload-images.jianshu.io/upload_images/9132651-e941004a4ba0d3c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-af1f760e96b4676c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-3b52584d4a61de38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="3-Find-inFo查看版本信息"><a href="#3-Find-inFo查看版本信息" class="headerlink" title="3.Find inFo查看版本信息"></a>3.Find inFo查看版本信息</h1><p>lspci -Dn -s 02:07.0<br>查看谁正在用这个网卡<br><img src="http://upload-images.jianshu.io/upload_images/9132651-148eafb97b1b4b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>who is use it<br>lspci -K -s 02:07.0</p>
-<h1 id="4-将网卡放进盒子"><a href="#4-将网卡放进盒子" class="headerlink" title="4.将网卡放进盒子"></a>4.将网卡放进盒子</h1><p>echo  -n “8086 100f” /sys/bus/pci/drivers/pci-stub/new_id<br>echo 0000:02:07.0 &gt; /sys/bus/pci/devices/0000:02:07.0/driver/unbind<br>echo 0000:02:07.0 &gt; /sys/bus/pci/drivers/pci-stub/bind<br><img src="http://upload-images.jianshu.io/upload_images/9132651-6f9843960019a7b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-f8291dded6880126.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h1 id="5-ok-因为虚拟不支持-必须在真机上使用-命令如下"><a href="#5-ok-因为虚拟不支持-必须在真机上使用-命令如下" class="headerlink" title="5.ok 因为虚拟不支持,必须在真机上使用,命令如下"></a>5.ok 因为虚拟不支持,必须在真机上使用,命令如下</h1><p>2.网卡直接分配<br>1）选择需要直接分配的网卡<br>lspci –s 08:00.0<br>2）隐藏该网卡<br>3）启动客户机时分配网卡</p>
-<p>4）在客户机中查看网卡的工作情况</p>
-<p>5）关闭客户机后，在宿主机中恢复前面被隐藏的网卡</p>
-<p>qemu-system-x86_64 –enable-kvm -m 2048 -smp 4 -boot order=cd -hda /home/ck/mking/ubuntu.img -monitor stdio -vnc :0 -vga vmware</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/设备直接分配/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-内存设置大页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/内存设置大页/">内存设置大页</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/内存设置大页/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:41.866Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>内存设置<br>例1：不加内存参数，模拟一个默认大小内存的客户机系统。</p>
-<p>#root@kvm-host:~# qemu-system-x86_64 /home/zhangbin/zhangbin/ubuntu.img<br>在客户机中，可以通过两种常用的方式来查看内存信息，具体如下：</p>
-<p>#root@kvm-guest:~# free -m<br>      total       used       free     shared    buffers     cached                                    Mem:  113       111          2       0         0         7<br>-/+ buffers/cache:        103         10<br>Swap:       0          0          0</p>
-<p>free命令通常用来查看内存的使用情况，“-m”参数是指内存大小以MB为单位来显示。在上面示例中，我们使用了默认大小的内存，值为128M，而根据上面输出可知总的内存为113MB，这个值比128MB小，这是因为free命令显示的内存是实际能够使用的内存，已经除去了内核执行文件占用内存和一些系统保留的内存。</p>
-<p>#root@kvm-guest:~# cat /proc/meminfo<br>MemTotal:         997756 kB<br>MemFree:           66524 kB<br>MemAvailable:      32248 kB<br>Buffers:            2300 kB<br>Cached:            47776 kB<br>SwapCached:         6704 kB<br>Active:           356128 kB<br>Inactive:         336872 kB<br>Active(anon):     323292 kB<br>Inactive(anon):   319964 kB<br>Active(file):      32836 kB<br>Inactive(file):    16908 kB<br>Unevictable:          32 kB<br>Mlocked:              32 kB<br>SwapTotal:       1046524 kB<br>SwapFree:         281472 kB<br>Dirty:                 0 kB<br>Writeback:             0 kB<br>AnonPages:        636336 kB<br>Mapped:            43600 kB<br>Shmem:               332 kB<br>Slab:              65796 kB<br>SReclaimable:      24144 kB<br>SUnreclaim:        41652 kB<br>KernelStack:        9424 kB<br>PageTables:        30684 kB<br>NFS_Unstable:          0 kB<br>Bounce:                0 kB<br>WritebackTmp:          0 kB<br>CommitLimit:     1545400 kB<br>Committed_AS:    4522336 kB<br>VmallocTotal:   34359738367 kB<br>VmallocUsed:           0 kB<br>VmallocChunk:          0 kB<br>HardwareCorrupted:     0 kB<br>AnonHugePages:    507904 kB<br>CmaTotal:              0 kB<br>CmaFree:               0 kB<br>HugePages_Total:       0<br>HugePages_Free:        0<br>HugePages_Rsvd:        0<br>HugePages_Surp:        0<br>Hugepagesize:       2048 kB<br>DirectMap4k:       81792 kB<br>DirectMap2M:      966656 kB<br>DirectMap1G:           0 kB</p>
-<p> <img src="http://upload-images.jianshu.io/upload_images/9132651-bb4c028f9b993389.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>使用cat命令来查看/proc/meminfo看到的“MemTotal”大小是116412 kB，这个值比128M*1024=131071kB小，其原因也是因为此处显示的内存是实际能够使用的内存。</p>
-<p>同样，我们也可以使用dmesg命令来显示的内核信息。<br>例2：模拟一个内存大小为2048M的客户机系统。</p>
-<p>#root@kvm-host:~#qemu-system-x86_64 -m 2048M  /zhangbin/zhangbin/ubuntu.img<br>在客户机中，查看内存信息，具体如下：</p>
-<p>#root@kvm-guest:~#  free -m<br>               total       used       free     shared    buffers     cached<br>Mem:          2003        267       1735     0         22        114<br>-/+ buffers/cache:        130       1872<br>Swap:       0          0          0<br>根据上面输出可知，可用的总内存为2003MB，这个值比2048MB小。</p>
-<p>#root@kvm-guest:~# dmesg<br>[0.000000] Memory: 2034136k/2097144k available (6566k kernel code, 452k absent, 62556k reserved, 6637k data, 920k init)<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-30a09a483e604142.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>使用dmesg命令显示的内核打印信息可以看出，内存总量是2097144k，与2048*1024 =2097152相差无几。<br>例3：模拟一个内存大小为2G的客户机系统。</p>
-<p>#root@kvm-host:~# qemu-system-x86_64 -m 2G /home/zhangbin/zhangbin/ubuntu.img<br>在客户机中，查看内存信息，具体如下：w</p>
-<p>#root@kvm-guest:~# free -m<br>             total       used       free     shared    buffers     cached<br>Mem:        2003        263       1740      0         19        114<br>-/+ buffers/cache:        129       1874<br>Swap:       0          0          0</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9132651-3522d9b2e1d9a8ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>大页（HugePage）<br>可以在宿主机中，通过以下操作让客户机使用HugePage，具体操作如下：<br>(1)查看宿主机中内存页的大小和HugePage的大小。<br>通常情况下，内存页大小为4KB，可以使用如下命令来查看：</p>
-<p>#root@kvm-host:~# getconf PAGESIZE<br>4096<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-2a076d1e56c204ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>另外，一般的内存页大小为4kB，可以通过命令：getconf PAGE_SIZE 来查看，一般是4096Byte<br>  也可以通过C程序调用sysconf()函数来查询，示例代码如下：</p>
-<p>#include <stdio.h></stdio.h></p>
-<p>#include <unistd.h> /<em> sysconf(3) </em>/</unistd.h></p>
-<p>int main(void) {<br>        printf(“The page size for this system is %ld bytes.\n”,<br>               sysconf(_SC_PAGESIZE)); /<em> _SC_PAGE_SIZE is OK too. </em>/</p>
-<pre><code>return 0;
-</code></pre><p>}</p>
-<p>通常情况下，宿主机中HugePage的大小是2048kB，即2MB。可以使用如下命令来查看： </p>
-<p>#root@kvm-host:~# cat /proc/meminfo | grep Hugepagesize<br>Hugepagesize:       2048 kB<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-4ab0094c7cb5b1cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-87e6eec162711984.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="http://upload-images.jianshu.io/upload_images/9132651-21195d933247501e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>HugePages_Total: Hugepage的页面数量<br>  HugePages_Free: 剩余的页面数量<br>  HugePages_Rsvd: 被分配预留但是还没有使用的page数目<br>  HugePages_Surp：HugePages_Total减去/proc/sys/vm/nr_hugepages中的值<br>  Hugepagesize: 每单位数量大小<br>设置了多少的huge page，free内存就会被使用多少。<br>  比如：使用sysctl vm.nr_hugepages=1024 之后，free命令可以看到free的内存会减少2048MB。(这也和Hugepagesize的大小有关）<br>使用Hugepages的内存页是不会被交换出去到磁盘的，永远常驻在内存中，所以也减少了内存页交换的额外开销。使用hurgepage的内存不能被其他的进程使用，所以，一定要合理设置这个值，避免造成浪费。使用超过8G物理内存的系统，有人推荐使用HugePage。<br> HugePages_Free - HugePages_Rsvd部分的内存是浪费的，且不能被其他程序使用。在实际应用中，尽可能让HugePages_Free - HugePages_Rsvd=0<br>.HugePage的好处：<br>  大大提高了CPU cache中存放的page table所覆盖的内存大小，从而提高了TLB命中率。进程的虚拟内存地址段先连接到page tables然后再连接到物理内存。所以在访问内存时需要先访问page tables得到虚拟内存和物理内存的映射关系，然后再访问物理内存。CPU cache中有一部分TLB（Translation Lookaside Buffer）用来存放部分page table以提高这种装换的速度。因为page size变大了，所以同样大小的TLB，所覆盖的内存大小也变大了。提高了TBL命中率，也就是提高了地址转换的速度。<br>  系统进程是通过虚拟地址访问内存，但是CPU必须把它转换程物理内存地址才能真正访问内存。为了提高这个转换效率，CPU会缓存最近的虚拟内存地址和物理内存地址的映射关系，并保存在一个由CPU维护的映射表中。为了尽量提高内存的访问速度，需要在映射表中保存尽量多的映射关系。<br>(2)创建HugePage目录/dev/hugepages。</p>
-<p>#root@kvm-host:~# mkdir /dev/hugepages<br>(3)挂载hugetlbfs文件系统到linux的HugePage目录下，具体如下：</p>
-<p>#root@kvm-host:~# </p>
-<p>#root@kvm-host:~# mount<br><img src="http://upload-images.jianshu.io/upload_images/9132651-f691045150a2de9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>  zhangbin<br>/dev/sda2 on / type ext4 (rw,errors=remount-ro)<br>proc on /proc type proc (rw,noexec,nosuid,nodev)<br>sysfs on /sys type sysfs (rw,noexec,nosuid,nodev)<br>none on /sys/fs/cgroup type tmpfs (rw)<br>none on /sys/fs/fuse/connections type fusectl (rw)<br>none on /sys/kernel/debug type debugfs (rw)<br>none on /sys/kernel/security type securityfs (rw)<br>none on /sys/firmware/efi/efivars type efivarfs (rw)<br>udev on /dev type devtmpfs (rw,mode=0755)<br>devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=0620)<br>tmpfs on /run type tmpfs (rw,noexec,nosuid,size=10%,mode=0755)<br>none on /run/lock type tmpfs (rw,noexec,nosuid,nodev,size=5242880)<br>none on /run/shm type tmpfs (rw,nosuid,nodev)<br>none on /run/user type tmpfs (rw,noexec,nosuid,nodev,size=104857600,mode=0755)<br>none on /sys/fs/pstore type pstore (rw)<br>cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,relatime,cpuset)<br>cgroup on /sys/fs/cgroup/cpu type cgroup (rw,relatime,cpu)<br>cgroup on /sys/fs/cgroup/cpuacct type cgroup (rw,relatime,cpuacct)<br>cgroup on /sys/fs/cgroup/memory type cgroup (rw,relatime,memory)<br>cgroup on /sys/fs/cgroup/devices type cgroup (rw,relatime,devices)<br>cgroup on /sys/fs/cgroup/freezer type cgroup (rw,relatime,freezer)<br>cgroup on /sys/fs/cgroup/blkio type cgroup (rw,relatime,blkio)<br>cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,relatime,perf_event)<br>cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,relatime,hugetlb)<br>/dev/sda1 on /boot/efi type vfat (rw)<br>systemd on /sys/fs/cgroup/systemd type cgroup   (rw,noexec,nosuid,nodev,none,name=systemd)<br>gvfsd-fuse on /run/user/0/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev)<br>hugetlbfs on /dev/hugepages type hugetlbfs (rw)<br>(4)设置HugePage的数量，具体如下：</p>
-<p>#root@kvm-host:~# sysctl vm.nr_hugespages=1024<br>vm.nr_hugespages=1024<br>（另一个操作方法，在/etc/sysctl.conf加入如下配置就可以：vm.nr_hugepages=1024  修改后，用命令sysctl -p 使得设置生效）<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-1202c58a1bff140b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>  （或者，改动linux启动的grub参数也是可以的，加上 hugepages=1024 这样的参数）</p>
-<p>#root@kvm-host:~# cat /proc/meminfo | grep Huge<br>AnonHugePages:    229376 kB<br>HugePages_Total:     1024<br>HugePages_Free:      1024<br>HugePages_Rsvd:        0<br>HugePages_Surp:        0<br>Hugepagesize:       2048 kB<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-f68a12b4aeb08622.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>(5)启动客户机，并让其使用HugePage内存，具体如下：</p>
-<p>#root@kvm-host:~# qemu-system-x86_64 -m 1024 /home/ck/ubuntu.img<br>-mem-path /dev/hugepages<br> [图片上传中…(image.png-57af42-1511845890534-0)]</p>
-<p>(6)查看宿主机中HugePage的使用情况。</p>
-<p>#root@kvm-host:~# cat /proc/meminfo | grep Huge<br>AnonHugePages:    229376 kB<br>HugePages_Total:     1024<br>HugePages_Free:      897<br>HugePages_Rsvd:      393<br>HugePages_Surp:        0<br>Hugepagesize:       2048 kB</p>
-<p>通过上述结果，可以看到HugePages_Free数量减少了，因为客户机使用了一定数量的HugePage。但是HugePages_Free的数量没有减少512个（512*2MB=1024MB），这是因为刚启动客户机时并没有分配1024MB内存。<br>如果使用“-mem-prealloc”参数就会让meminfo文件中HugePages_Free数量的减少和分配客户机保持一致。<br>在linux环境中开启HugePage有很多好处，具体如下：<br>（1）    非Swap内存：当开启HugePage的时候，HugePage是不会Swap的；<br>（2）    减少TLB（Translation Look aside Buffer）负担：TLB是在CPU里面的一块缓冲区域，其中包括了部分PageTable内容。使用HugePage可以减少TLB工作负载；<br>（3）    减少Page Table空间负载：在PageTable管理中，每条Page记录是要占据64byte的空间。也就是说，如果一块50G的RAM，4k大小的PageTable要有80MB左右；<br>（4）    减少PageTable检索负载：更小的PageTable意味着更快的检索定位能力；<br>（5）    内存性能提升：Page数量减少和大小的增加，减少了管理过程的复杂性，进一步减少了瓶颈出现的概率。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/内存设置大页/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-进程亲和性操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/进程亲和性操作/">进程亲和性操作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/28/进程亲和性操作/" class="archive-article-date">
-  	<time datetime="2017-11-28T02:51:40.570Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 处理器亲和性和cpu绑定<br>一、    启动宿主机时隔离出逻辑cpu专门供一个客户机使用。</p>
-<p>/boot/grub/grub.cfg<br>chmod a+w grub.cfg<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-051dec33c100d7e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>3个地方需要修改<br>linux    /boot/vmlinuz-4.2.0-27-generic root=UUID=d0e76f93-1856-4f3b-9aa0-f0e1cc2ec708 isolcpus=2,3</p>
-<p>在Linux内核grub配置文件中加上“isolcpus=2,3”参数</p>
-<p>重启生效<br>reboot<br>在宿主机中检查是否隔离成功：<br>ps –eLo psr | grep 2 | wc –l<br>ps –eLo psr | grep 3 | wc –l</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9132651-41194176511a97d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>ps –eLo ruser,pid,ppid,lwp,psr,args | awk ‘{if($5==2) print $0}’<br>ps –eLo ruser,pid,ppid,lwp,psr,args | awk ‘{if($5==3) print $0}’</p>
-<p>二、绑定cpu<br>启动加参数-daemonize<br>qemu-system-x86_64 -enable-kvm -m 1024 -smp 2 -boot order=cd -hda ubuntu.img -vga vmware -daemonize<br> <img src="http://upload-images.jianshu.io/upload_images/9132651-4b3989cac9f61c84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>ps -eLo ruser,pid,ppid,lwp,psr,args | grep qemu | grep -v grep</p>
-<p>绑定<br>taskset –p 0x4 3963<br>taskset –p 0x4 3967<br>taskset –p 0x8 3968</p>
-<p>1   1<br>2   10<br>3   11<br>4   100</p>
-<p>CPU0    000001    1  20<br>CPU1    000010    2  21<br>CPU2    000100    4  22<br>CPU3    001000    8  23</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/云计算//" class="article-tag-list-link color4">云计算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/28/进程亲和性操作/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/04/zhangxvefeng/">展开全文 >></a>
         </p>
       
 
@@ -1029,10 +457,358 @@
 
 
   
+    <article id="post-markdown" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/markdown/">欢迎使用 Cmd Markdown 编辑阅读器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/markdown/" class="archive-article-date">
+  	<time datetime="2017-11-20T08:12:24.993Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="欢迎使用-Cmd-Markdown-编辑阅读器"><a href="#欢迎使用-Cmd-Markdown-编辑阅读器" class="headerlink" title="欢迎使用 Cmd Markdown 编辑阅读器"></a>欢迎使用 Cmd Markdown 编辑阅读器</h1><hr>
+        
+          <a class="article-more-a" href="/2017/11/20/markdown/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/markdown/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/hexo/">搭建个人博客Hexo并托管至github上</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/hexo/" class="archive-article-date">
+  	<time datetime="2017-11-20T05:33:23.551Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="搭建个人博客Hexo并托管至github上"><a href="#搭建个人博客Hexo并托管至github上" class="headerlink" title="搭建个人博客Hexo并托管至github上"></a>搭建个人博客Hexo并托管至github上</h3>
+        
+          <a class="article-more-a" href="/2017/11/20/hexo/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/hexo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ce3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/07/ce3/">hello-world2222222222</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/07/ce3/" class="archive-article-date">
+  	<time datetime="2016-11-07T00:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>bbbbbbbbbbbbbbbbbbbb</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Exercise//" class="article-tag-list-link color4">Exercise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/07/ce3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ce1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/07/ce1/">hello-world111</a>
+    </h1>
+  
+
+        
+        <a href="/2015/11/07/ce1/" class="archive-article-date">
+  	<time datetime="2015-11-07T00:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Exercise//" class="article-tag-list-link color4">Exercise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/11/07/ce1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ce2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/07/ce2/">hello-world33</a>
+    </h1>
+  
+
+        
+        <a href="/2014/11/07/ce2/" class="archive-article-date">
+  	<time datetime="2014-11-07T00:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>cccccccccccccccccc</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Exercise//" class="article-tag-list-link color4">Exercise</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/11/07/ce2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
