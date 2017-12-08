@@ -72,6 +72,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/categories">分类</a></li>
 	        
+				<li><a href="/tags">标签云</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -190,6 +192,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -207,12 +211,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/categories">分类</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags">标签云</a></li>
 		        
 				</ul>
 			</nav>
@@ -254,16 +260,67 @@ var _hmt = _hmt || [];
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
-		<div class="tag-cloud">
-			<div class="tag-cloud-title">
-			counter.tag_cloud
-			</div>
-			<div class="tag-cloud-tags">
-			<a href="/tags/Atom/" style="font-size: 12px; color: #ccc">Atom</a> <a href="/tags/Emmet/" style="font-size: 12px; color: #ccc">Emmet</a> <a href="/tags/Hexo/" style="font-size: 30px; color: #111">Hexo</a> <a href="/tags/Python/" style="font-size: 12px; color: #ccc">Python</a> <a href="/tags/React/" style="font-size: 12px; color: #ccc">React</a> <a href="/tags/Win/" style="font-size: 12px; color: #ccc">Win</a> <a href="/tags/markdown/" style="font-size: 12px; color: #ccc">markdown</a> <a href="/tags/研/" style="font-size: 12px; color: #ccc">研</a>
-			</div>
-		</div>
+        
+         <hr>
+<br>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Atom/">Atom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Emmet/">Emmet</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MarkDown/">MarkDown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Win/">Win</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研/">研</a><span class="category-list-count">1</span></li></ul>
+<div class="tags">
+  <a href="/tags/Atom/" style="font-size: 16px; color: #808080">Atom</a> <a href="/tags/Emmet/" style="font-size: 16px; color: #808080">Emmet</a> <a href="/tags/Hexo/" style="font-size: 35px; color: #000">Hexo</a> <a href="/tags/Python/" style="font-size: 16px; color: #808080">Python</a> <a href="/tags/React/" style="font-size: 16px; color: #808080">React</a> <a href="/tags/Win/" style="font-size: 16px; color: #808080">Win</a> <a href="/tags/markdown/" style="font-size: 16px; color: #808080">markdown</a> <a href="/tags/研/" style="font-size: 16px; color: #808080">研</a>
+</div>
+<style type="text/css">
+	.category-list li{
+		display: inline;
+		font-size: 1.2em;
+		margin-right: 1em;
+		line-height: 60px;
+		border: 1px solid lightgray;
+		padding: 6px;
+	}
+	.category-list a {
+		color: gray;
+	}
+	.category-list:hover a {
+		color: gray;
+		text-decoration: none;
+		font-weight: bold;
+	}
+	.category-list-count {
+		margin-left: 2px;
+		font-size: .9em;
+	}
+	.article-entry ul li:before{
+		display: none;
+	}
+	.article-inner  {
+		text-align: center;
+	}
+	.article-meta {
+		display: none;
+	}
+	.article-header {
+		padding-right: 35px;
+	}
+	#container .article .article-title {
+		padding-right: 0;
+	}
+	.tags {
+		max-width: 40em;
+		margin: 2em auto;
+		margin-top: 0em;
+	}
+	.tags a {
+		margin-right: 1em;
+		line-height: 65px;
+		border-bottom: 1px solid gray;
+	}
+	.tags a:hover {
+		font-weight: bold;
+		text-decoration: none;
+	}
+</style>
+		 
 		
+	
 
       
         <div class="page-reward">
@@ -473,11 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Emmet</a>
+                <a href="javascript:void(0)" class="js-tag color5">Atom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Atom</a>
+                <a href="javascript:void(0)" class="js-tag color1">Emmet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,19 +542,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Win</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">

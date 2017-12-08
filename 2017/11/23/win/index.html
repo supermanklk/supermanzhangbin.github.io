@@ -76,6 +76,8 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/categories">分类</a></li>
 	        
+				<li><a href="/tags">标签云</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -194,6 +196,8 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -211,12 +215,14 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/categories">分类</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags">标签云</a></li>
 		        
 				</ul>
 			</nav>
@@ -258,7 +264,7 @@ var _hmt = _hmt || [];
       </header>
     
     <div class="article-entry" itemprop="articleBody">
-      
+        
 			
 				<h2 id="带你学会玩Win系统小技巧"><a href="#带你学会玩Win系统小技巧" class="headerlink" title="带你学会玩Win系统小技巧"></a>带你学会玩Win系统小技巧</h2><h3 id="1-关机烦恼"><a href="#1-关机烦恼" class="headerlink" title="1.关机烦恼"></a>1.关机烦恼</h3><h4 id="你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘"><a href="#你有没有每次关机就需要鼠标点击开始–-gt-关机-虽然很简单异步操作-但是我认为能节约时间就节约呗-而且只需要键盘" class="headerlink" title="你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘"></a>你有没有每次关机就需要鼠标点击开始–&gt;关机.虽然很简单异步操作 但是我认为能节约时间就节约呗 而且只需要键盘</h4><a id="more"></a>
 <blockquote>
@@ -267,6 +273,8 @@ var _hmt = _hmt || [];
 <h3 id="2-bat脚本命令删除文件夹"><a href="#2-bat脚本命令删除文件夹" class="headerlink" title="2.bat脚本命令删除文件夹"></a>2.bat脚本命令删除文件夹</h3><h4 id="如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了"><a href="#如果你有时候想防止一个文件修改之后需要还原-那么一般不行-所以需要备份一下-下Win下复制-粘贴有时候太low了" class="headerlink" title="如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了"></a>如果你有时候想防止一个文件修改之后需要还原,那么一般不行.所以需要备份一下,下Win下复制 粘贴有时候太low了</h4><h4 id="因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空"><a href="#因为你的目的是备份-所以就可以将一个文件内所有内容定向传到另一个文件-传之前将被传文件清空" class="headerlink" title="因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)"></a>因为你的目的是备份 所以就可以将一个文件内所有内容定向传到另一个文件(传之前将被传文件清空)</h4><h4 id="缺点-文件大的情况下比较慢-等我有空在看看如何优化实现"><a href="#缺点-文件大的情况下比较慢-等我有空在看看如何优化实现" class="headerlink" title="缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现"></a>缺点:文件大的情况下比较慢!!! 等我有空在看看如何优化实现</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">##### 删除文件夹田雨下所有内容 </span><br><span class="line">del /f/s/q f:\tianyu\*.*</span><br><span class="line">##### 删除文件夹tianyu</span><br><span class="line">rd /q/s f:\tianyu\ </span><br><span class="line">##### 创建文件夹tianyu</span><br><span class="line">md f:\tianyu </span><br><span class="line">##### 拷贝f下zhangbin文件夹所有内容到 f盘tianyu下的文件夹</span><br><span class="line">xcopy f:\zhangbin\*.* f:\tianyu\ /e/h</span><br></pre></td></tr></table></figure>
 			
 		
+		
+	
 
       
         <div class="page-reward">
@@ -550,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Emmet</a>
+                <a href="javascript:void(0)" class="js-tag color5">Atom</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Atom</a>
+                <a href="javascript:void(0)" class="js-tag color1">Emmet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,19 +570,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Win</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
