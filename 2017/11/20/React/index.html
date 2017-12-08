@@ -96,6 +96,66 @@ var _hmt = _hmt || [];
     			
             
 		</nav>
+		
+		<nav class="header-lovetime">
+			
+				<div class="lovetime">
+					<section class="love-time">
+						<p class="love-people">
+							学长大大 和
+								ty宝宝 走过了：</p>
+						<p id="love-time-count"></p>
+					</section>
+				</div>
+				<style>
+					/* 计时器 */
+					.header-lovetime{
+						animation: fade-in;
+						-webkit-animation: fade-in 1s;
+					}
+					.love-time {
+						z-index: 999;
+						bottom: 90px;
+						left: 30px;
+						margin-bottom: 12px;
+						text-align: center;
+						font-size: 15px;
+						color: #9a8c8c;
+						border-radius: 5px;
+					}
+					.love-people {
+						font-size: 13px;
+					}
+					.love-time-count,
+					.love-time-asume {
+						font-size: 10px;
+					}
+				</style>
+				<script>
+					var starttime = "2017-12-01 00:00:00";
+					setInterval(function () { interval(starttime); }, 100);
+					function interval(e) {
+						var date1 = new Date(e);  //开始时间
+						var date2 = new Date();    //结束时间
+						var date3 = date2.getTime() - date1.getTime()  //时间差的毫秒数
+						//计算出相差天数
+						var days = Math.floor(date3 / (24 * 3600 * 1000))
+						//计算出小时数
+						var leave1 = date3 % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+						var hours = Math.floor(leave1 / (3600 * 1000))
+						//计算相差分钟数
+						var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数
+						var minutes = Math.floor(leave2 / (60 * 1000))
+						//计算相差秒数
+						var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+						var seconds = Math.round(leave3 / 1000)
+						var countDays = document.getElementById("love-time-count")
+						countDays.innerHTML = days + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒"
+					}
+				</script>
+				
+		</nav>
+		
 		<nav class="header-nav">
 			<div class="social">
 				
@@ -189,6 +249,14 @@ var _hmt = _hmt || [];
         <a href="/2017/11/20/React/" class="archive-article-date">
   	<time datetime="2017-11-20T13:30:36.107Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
 </a>
+<a href="/2017/11/20/React/" class="archive-article-date">
+  	<time datetime="2017-11-20T13:30:36.107Z" itemprop="datePublished">2017-11-20</time>
+  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
+      view <span id="busuanzi_value_page_pv"></span> times
+    </span>
+</a>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
         
       </header>
     
@@ -536,11 +604,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Win</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">Win</a>
               </li>
              
               <li class="article-tag-list-item">
