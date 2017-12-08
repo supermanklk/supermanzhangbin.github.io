@@ -9,12 +9,13 @@
   <title>Python之简单算法(斐波那列,回文....) | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.输出1000以内的回文数 filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python之简单算法(斐波那列,回文....)">
 <meta property="og:url" content="http://yoursite.com/2017/12/07/Python1/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
 <meta property="og:description" content="1.输出1000以内的回文数 filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。">
-<meta property="og:updated_time" content="2017-12-07T01:45:58.080Z">
+<meta property="og:updated_time" content="2017-12-08T04:25:29.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python之简单算法(斐波那列,回文....)">
 <meta name="twitter:description" content="1.输出1000以内的回文数 filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。">
@@ -73,7 +74,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories">分类</a></li>
 	        
 			</ul>
 		</nav>
@@ -155,7 +156,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -190,13 +191,15 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-输出1000以内的回文数"><a href="#1-输出1000以内的回文数" class="headerlink" title="1.输出1000以内的回文数"></a>1.输出1000以内的回文数</h4><blockquote>
+			
+				<h4 id="1-输出1000以内的回文数"><a href="#1-输出1000以内的回文数" class="headerlink" title="1.输出1000以内的回文数"></a>1.输出1000以内的回文数</h4><blockquote>
 <p>filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。<br><a id="more"></a><br>n[::-1] 倒序 比如 n = 123456  n[::-1] = 654321<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">iss</span><span class="params">(n)</span>:</span></span><br><span class="line"><span class="meta">... </span>    n = str(n)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> n == n[::<span class="number">-1</span>] </span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>output = filter(iss, range(<span class="number">1</span>,<span class="number">1000</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(list(output))</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>, <span class="number">77</span>, <span class="number">88</span>, <span class="number">99</span>, <span class="number">101</span>, <span class="number">111</span>, <span class="number">121</span>, <span class="number">131</span>, <span class="number">141</span>, <span class="number">151</span>, <span class="number">161</span>, <span class="number">171</span>, <span class="number">181</span>, <span class="number">191</span>, <span class="number">202</span>, <span class="number">212</span>, <span class="number">222</span>, <span class="number">232</span>, <span class="number">242</span>, <span class="number">252</span>, <span class="number">262</span>, <span class="number">272</span>, <span class="number">282</span>, <span class="number">292</span>, <span class="number">303</span>, <span class="number">313</span>, <span class="number">323</span>, <span class="number">333</span>, <span class="number">343</span>, <span class="number">353</span>, <span class="number">363</span>, <span class="number">373</span>, <span class="number">383</span>, <span class="number">393</span>, <span class="number">404</span>, <span class="number">414</span>, <span class="number">424</span>, <span class="number">434</span>, <span class="number">444</span>, <span class="number">454</span>, <span class="number">464</span>, <span class="number">474</span>, <span class="number">484</span>, <span class="number">494</span>, <span class="number">505</span>, <span class="number">515</span>, <span class="number">525</span>, <span class="number">535</span>, <span class="number">545</span>, <span class="number">555</span>, <span class="number">565</span>, <span class="number">575</span>, <span class="number">585</span>, <span class="number">595</span>, <span class="number">606</span>, <span class="number">616</span>, <span class="number">626</span>, <span class="number">636</span>, <span class="number">646</span>, <span class="number">656</span>, <span class="number">666</span>, <span class="number">676</span>, <span class="number">686</span>, <span class="number">696</span>, <span class="number">707</span>, <span class="number">717</span>, <span class="number">727</span>, <span class="number">737</span>, <span class="number">747</span>, <span class="number">757</span>, <span class="number">767</span>, <span class="number">777</span>, <span class="number">787</span>, <span class="number">797</span>, <span class="number">808</span>, <span class="number">818</span>, <span class="number">828</span>, <span class="number">838</span>, <span class="number">848</span>, <span class="number">858</span>, <span class="number">868</span>, <span class="number">878</span>, <span class="number">888</span>, <span class="number">898</span>, <span class="number">909</span>, <span class="number">919</span>, <span class="number">929</span>, <span class="number">939</span>, <span class="number">949</span>, <span class="number">959</span>, <span class="number">969</span>, <span class="number">979</span>, <span class="number">989</span>, <span class="number">999</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h4 id="2-左下三角格式输出九九乘法表"><a href="#2-左下三角格式输出九九乘法表" class="headerlink" title="2. 左下三角格式输出九九乘法表"></a>2. 左下三角格式输出九九乘法表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">        print(<span class="string">"%d*%d=%2d"</span> % (i,j,i*j),end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">" "</span>)</span><br></pre></td></tr></table></figure>
 <h4 id="3-输出2000到250之间的闰年-普通闰年-整除4切不能被100整除-特殊闰年-整除400"><a href="#3-输出2000到250之间的闰年-普通闰年-整除4切不能被100整除-特殊闰年-整除400" class="headerlink" title="3.输出2000到250之间的闰年(普通闰年:整除4切不能被100整除 特殊闰年: 整除400)"></a>3.输出2000到250之间的闰年(普通闰年:整除4切不能被100整除 特殊闰年: 整除400)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2000</span>,<span class="number">2050</span>) <span class="keyword">if</span> ((x%<span class="number">4</span>==<span class="number">0</span> <span class="keyword">and</span> x %<span class="number">100</span>!= <span class="number">0</span>) <span class="keyword">or</span> x%<span class="number">400</span>==<span class="number">0</span>)]</span><br><span class="line">[<span class="number">2000</span>, <span class="number">2004</span>, <span class="number">2008</span>, <span class="number">2012</span>, <span class="number">2016</span>, <span class="number">2020</span>, <span class="number">2024</span>, <span class="number">2028</span>, <span class="number">2032</span>, <span class="number">2036</span>, <span class="number">2040</span>, <span class="number">2044</span>, <span class="number">2048</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="4-菲波那切数列"><a href="#4-菲波那切数列" class="headerlink" title="4.菲波那切数列"></a>4.菲波那切数列</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> a &lt; <span class="number">100</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> a,</span><br><span class="line"><span class="meta">... </span>    a,b = b,a+b</span><br><span class="line">...</span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span> <span class="number">89</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-      
+			
+		
 
       
         <div class="page-reward">
@@ -234,6 +237,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -467,6 +481,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Emmet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Win</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">研</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

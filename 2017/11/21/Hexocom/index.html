@@ -9,6 +9,7 @@
   <title>Hexo如何绑定域名 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="hexo搭建的Github博客绑定域名">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo如何绑定域名">
 <meta property="og:url" content="http://yoursite.com/2017/11/21/Hexocom/index.html">
@@ -23,7 +24,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-4c1485e92165c980.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-5b1a027a13144582.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9132651-f77208a4c15b8823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-04T13:04:10.362Z">
+<meta property="og:updated_time" content="2017-12-08T04:25:51.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo如何绑定域名">
 <meta name="twitter:description" content="hexo搭建的Github博客绑定域名">
@@ -83,7 +84,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories">分类</a></li>
 	        
 			</ul>
 		</nav>
@@ -165,7 +166,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/categories">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -200,7 +201,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="hexo搭建的Github博客绑定域名"><a href="#hexo搭建的Github博客绑定域名" class="headerlink" title="hexo搭建的Github博客绑定域名"></a>hexo搭建的Github博客绑定域名</h1><a id="more"></a>
+			
+				<h1 id="hexo搭建的Github博客绑定域名"><a href="#hexo搭建的Github博客绑定域名" class="headerlink" title="hexo搭建的Github博客绑定域名"></a>hexo搭建的Github博客绑定域名</h1><a id="more"></a>
 <h3 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h3><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>本人在阿里云网站购买的域名，因此本教程以阿里云为栗子，进入<a href="https://www.aliyun.com/" target="_blank" rel="noopener">阿里云域名注册页面</a>。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/9132651-20246403632decc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>输入我们想要的域名，进行查询，选择未被注册的域名进行购买：</p>
@@ -242,7 +244,8 @@ var _hmt = _hmt || [];
 <p>当我们在本地使用hexo deploy命令再一次部署博客时，会发现博客网页的css样式丢失或是404错误，这是因为本地的博客工程里面还没有CNAME，当我们重新部署后，远程的博客工程会和本地保持同步，将CNAME文件删除，所以我们要在本地添加CNAME文件：</p>
 <p>image<br>image<br>这里我们需要注意的是：CNAME文件添加的目录是在根目录下的source文件夹，而不是.deploy_git文件夹，完成添加后重新部署，博客网站又会恢复正常。</p>
 
-      
+			
+		
 
       
         <div class="page-reward">
@@ -280,6 +283,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -513,6 +527,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Emmet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Win</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">研</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
