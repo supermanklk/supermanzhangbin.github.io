@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Python之简单算法(斐波那列,回文....) | Superman Bin&#39;s Blog</title>
+  <title>Category: Emmet | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.输出1000以内的回文数 filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Python之简单算法(斐波那列,回文....)">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/Python1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Superman Bin&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/categories/Emmet/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
-<meta property="og:description" content="1.输出1000以内的回文数 filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。">
-<meta property="og:updated_time" content="2017-12-07T01:45:58.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python之简单算法(斐波那列,回文....)">
-<meta name="twitter:description" content="1.输出1000以内的回文数 filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。">
+<meta name="twitter:title" content="Superman Bin&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -170,213 +166,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python1" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Python之简单算法(斐波那列,回文....)
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/08/Emmet/" class="archive-article-date">
+  	<time datetime="2017-12-08T01:46:46.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/08/Emmet/">Emmet介绍与使用</a>
     </h1>
   
 
-        
-        <a href="/2017/12/07/Python1/" class="archive-article-date">
-  	<time datetime="2017-12-07T01:42:58.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-输出1000以内的回文数"><a href="#1-输出1000以内的回文数" class="headerlink" title="1.输出1000以内的回文数"></a>1.输出1000以内的回文数</h4><blockquote>
-<p>filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。<br><a id="more"></a><br>n[::-1] 倒序 比如 n = 123456  n[::-1] = 654321<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">iss</span><span class="params">(n)</span>:</span></span><br><span class="line"><span class="meta">... </span>    n = str(n)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> n == n[::<span class="number">-1</span>] </span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>output = filter(iss, range(<span class="number">1</span>,<span class="number">1000</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(list(output))</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">66</span>, <span class="number">77</span>, <span class="number">88</span>, <span class="number">99</span>, <span class="number">101</span>, <span class="number">111</span>, <span class="number">121</span>, <span class="number">131</span>, <span class="number">141</span>, <span class="number">151</span>, <span class="number">161</span>, <span class="number">171</span>, <span class="number">181</span>, <span class="number">191</span>, <span class="number">202</span>, <span class="number">212</span>, <span class="number">222</span>, <span class="number">232</span>, <span class="number">242</span>, <span class="number">252</span>, <span class="number">262</span>, <span class="number">272</span>, <span class="number">282</span>, <span class="number">292</span>, <span class="number">303</span>, <span class="number">313</span>, <span class="number">323</span>, <span class="number">333</span>, <span class="number">343</span>, <span class="number">353</span>, <span class="number">363</span>, <span class="number">373</span>, <span class="number">383</span>, <span class="number">393</span>, <span class="number">404</span>, <span class="number">414</span>, <span class="number">424</span>, <span class="number">434</span>, <span class="number">444</span>, <span class="number">454</span>, <span class="number">464</span>, <span class="number">474</span>, <span class="number">484</span>, <span class="number">494</span>, <span class="number">505</span>, <span class="number">515</span>, <span class="number">525</span>, <span class="number">535</span>, <span class="number">545</span>, <span class="number">555</span>, <span class="number">565</span>, <span class="number">575</span>, <span class="number">585</span>, <span class="number">595</span>, <span class="number">606</span>, <span class="number">616</span>, <span class="number">626</span>, <span class="number">636</span>, <span class="number">646</span>, <span class="number">656</span>, <span class="number">666</span>, <span class="number">676</span>, <span class="number">686</span>, <span class="number">696</span>, <span class="number">707</span>, <span class="number">717</span>, <span class="number">727</span>, <span class="number">737</span>, <span class="number">747</span>, <span class="number">757</span>, <span class="number">767</span>, <span class="number">777</span>, <span class="number">787</span>, <span class="number">797</span>, <span class="number">808</span>, <span class="number">818</span>, <span class="number">828</span>, <span class="number">838</span>, <span class="number">848</span>, <span class="number">858</span>, <span class="number">868</span>, <span class="number">878</span>, <span class="number">888</span>, <span class="number">898</span>, <span class="number">909</span>, <span class="number">919</span>, <span class="number">929</span>, <span class="number">939</span>, <span class="number">949</span>, <span class="number">959</span>, <span class="number">969</span>, <span class="number">979</span>, <span class="number">989</span>, <span class="number">999</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="2-左下三角格式输出九九乘法表"><a href="#2-左下三角格式输出九九乘法表" class="headerlink" title="2. 左下三角格式输出九九乘法表"></a>2. 左下三角格式输出九九乘法表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,i+<span class="number">1</span>):</span><br><span class="line">        print(<span class="string">"%d*%d=%2d"</span> % (i,j,i*j),end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">" "</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="3-输出2000到250之间的闰年-普通闰年-整除4切不能被100整除-特殊闰年-整除400"><a href="#3-输出2000到250之间的闰年-普通闰年-整除4切不能被100整除-特殊闰年-整除400" class="headerlink" title="3.输出2000到250之间的闰年(普通闰年:整除4切不能被100整除 特殊闰年: 整除400)"></a>3.输出2000到250之间的闰年(普通闰年:整除4切不能被100整除 特殊闰年: 整除400)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2000</span>,<span class="number">2050</span>) <span class="keyword">if</span> ((x%<span class="number">4</span>==<span class="number">0</span> <span class="keyword">and</span> x %<span class="number">100</span>!= <span class="number">0</span>) <span class="keyword">or</span> x%<span class="number">400</span>==<span class="number">0</span>)]</span><br><span class="line">[<span class="number">2000</span>, <span class="number">2004</span>, <span class="number">2008</span>, <span class="number">2012</span>, <span class="number">2016</span>, <span class="number">2020</span>, <span class="number">2024</span>, <span class="number">2028</span>, <span class="number">2032</span>, <span class="number">2036</span>, <span class="number">2040</span>, <span class="number">2044</span>, <span class="number">2048</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="4-菲波那切数列"><a href="#4-菲波那切数列" class="headerlink" title="4.菲波那切数列"></a>4.菲波那切数列</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">while</span> a &lt; <span class="number">100</span>:</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> a,</span><br><span class="line"><span class="meta">... </span>    a,b = b,a+b</span><br><span class="line">...</span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21</span> <span class="number">34</span> <span class="number">55</span> <span class="number">89</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/AliPay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/WeChatPay.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Python//" class="article-tag-list-link color2">Python</a>
+        			<a href="/categories/Emmet//" class="article-tag-list-link color1">Emmet</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/07/Python1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/12/08/Emmet/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Emmet介绍与使用
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/12/06/Atom/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用Atom</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-输出1000以内的回文数"><span class="toc-number">1.</span> <span class="toc-text">1.输出1000以内的回文数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-左下三角格式输出九九乘法表"><span class="toc-number">2.</span> <span class="toc-text">2. 左下三角格式输出九九乘法表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-输出2000到250之间的闰年-普通闰年-整除4切不能被100整除-特殊闰年-整除400"><span class="toc-number">3.</span> <span class="toc-text">3.输出2000到250之间的闰年(普通闰年:整除4切不能被100整除 特殊闰年: 整除400)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-菲波那切数列"><span class="toc-number">4.</span> <span class="toc-text">4.菲波那切数列</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="Python1" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cyt3J8IJB",
-        conf: "0df7c4ad1c1feff109a5a2e6a86d9c4d"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -399,10 +242,10 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
