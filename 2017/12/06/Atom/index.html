@@ -62,7 +62,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://upload-images.jianshu.io/upload_images/9132651-a0e00419ae5a51db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="js-avatar">
+			<img src="http://ozeriw6bv.bkt.clouddn.com/super.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">superman Bin</a></h1>
@@ -184,7 +184,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://upload-images.jianshu.io/upload_images/9132651-a0e00419ae5a51db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="js-avatar">
+				<img src="http://ozeriw6bv.bkt.clouddn.com/super.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">superman Bin</h1>
@@ -267,6 +267,66 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
         
+			
+			
+			<div id="toc" class="toc-article">
+			  <strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装中文插件-File-gt-Settings-gt-Install-gt-搜索包名-simplified-chinese-menu-安装以后会自动立即汉化-如果没有的话可以重启下Atom"><span class="toc-text">安装中文插件 File > Settings > Install > 搜索包名:simplified-chinese-menu 安装以后会自动立即汉化,如果没有的话可以重启下Atom</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-安装Atom以后-代码区内莫名奇妙出现了一根竖线-其实是告诉你代码尽量不要超过其线-即80个字符"><span class="toc-text">1.安装Atom以后.代码区内莫名奇妙出现了一根竖线(其实是告诉你代码尽量不要超过其线,即80个字符),</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#去掉的方法-File-gt-Settings-gt-Editor-gt-Preferred-Line-Length"><span class="toc-text">去掉的方法:File > Settings > Editor > Preferred Line Length</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#中文-文件-gt-设置-gt-编译器设置-gt-一行的长度"><span class="toc-text">中文(文件 > 设置 > 编译器设置 > 一行的长度)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-安装包"><span class="toc-text">2.安装包</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#atom-beautify"><span class="toc-text">atom-beautify</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#minimap"><span class="toc-text">minimap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#browser-plus"><span class="toc-text">browser-plus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#highlight-selected"><span class="toc-text">highlight-selected</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docblockr"><span class="toc-text">docblockr</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#autocomplete-paths"><span class="toc-text">autocomplete-paths</span></a>
+			</div>
+					<style>
+					@media (max-width: 1099px) {
+					
+					#toc {
+					background : #fff;
+					display:none;
+					}
+					}
+					
+					@media (min-width: 1100px) {
+					#toc {
+					border: 1px solid #fff;
+					background : #fff;
+					z-index: 999;
+					top:150px;
+					right:30px;
+					transition:right .5s ease-in;
+					padding: 0 1em;
+					position:fixed;
+					width:200px;
+					}
+					h2{
+					   margin-bottom:10px;
+					 }
+					 ol{
+					   padding-left: 0!important;
+					 }
+						 line-height: 1.3em;
+						 font-size: 0.8em;
+						 float: right;
+					.toc{
+						padding: 0;
+					   li{
+						 list-style-type: none;
+						 margin: .5em 0 .5em;
+					 ol{
+					   margin: .5em 0 .5em 1em;
+					 }
+				   }
+				 }
+					   .article2{
+					 margin-right: 211px;
+					 transition: margin-right .5s ease-in;
+				   }
+					 .toc-item span {
+					 display: table-cell;
+					 }
+					 span.toc-text {
+					 padding-left: 3px;
+					}
+
+					}
+		
+		</style>
 			
 				<blockquote>
 <p>本文只对安装Atom以后出现的小问题进行总结,下载可是直接到<a href="https://atom.io/" target="_blank" rel="noopener">官网</a>上下载.</p>
@@ -581,19 +641,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Win</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">Win</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -63,7 +63,7 @@ var _hmt = _hmt || [];
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://upload-images.jianshu.io/upload_images/9132651-a0e00419ae5a51db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="js-avatar">
+			<img src="http://ozeriw6bv.bkt.clouddn.com/super.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">superman Bin</a></h1>
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://upload-images.jianshu.io/upload_images/9132651-a0e00419ae5a51db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" class="js-avatar">
+				<img src="http://ozeriw6bv.bkt.clouddn.com/super.png" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">superman Bin</h1>
@@ -268,6 +268,66 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
         
+			
+			
+			<div id="toc" class="toc-article">
+			  <strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-组件-基本"><span class="toc-text">1.组件(基本)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-1定义组件"><span class="toc-text">1.1定义组件</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2使用组件"><span class="toc-text">1.2使用组件</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-组件-有属性"><span class="toc-text">2.组件(有属性)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-React-事件"><span class="toc-text">2.React-事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#属性–定死"><span class="toc-text">属性–定死</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#状态–变得"><span class="toc-text">状态–变得</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#constructor-为构造函数-组件初始化的时候自动调用"><span class="toc-text">constructor(){} 为构造函数.组件初始化的时候自动调用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置状态2种方法"><span class="toc-text">设置状态2种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件大小写不能乱-例如-onChange-onClick"><span class="toc-text">事件大小写不能乱 例如(onChange onClick)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绑定事件"><span class="toc-text">绑定事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用到constructor的时候-必须用super"><span class="toc-text">用到constructor的时候,必须用super</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#constructor-…args-…args-是ES6可选参数"><span class="toc-text">constructor(…args)  …args 是ES6可选参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#React-与-Angular-石川老师认为-他们2个在方向上就有区别"><span class="toc-text">React 与 Angular 石川老师认为:他们2个在方向上就有区别,</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Angular-与-React"><span class="toc-text">Angular 与 React</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#相似之处-都可以接管组件"><span class="toc-text">相似之处: 都可以接管组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不同之处-Angular一切的核心是数据-React一切的核心是状态"><span class="toc-text">不同之处: Angular一切的核心是数据 React一切的核心是状态</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件-生存周期"><span class="toc-text">[组件-生存周期]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表单原件的问题"><span class="toc-text">表单原件的问题</span></a></li></ol>
+			</div>
+					<style>
+					@media (max-width: 1099px) {
+					
+					#toc {
+					background : #fff;
+					display:none;
+					}
+					}
+					
+					@media (min-width: 1100px) {
+					#toc {
+					border: 1px solid #fff;
+					background : #fff;
+					z-index: 999;
+					top:150px;
+					right:30px;
+					transition:right .5s ease-in;
+					padding: 0 1em;
+					position:fixed;
+					width:200px;
+					}
+					h2{
+					   margin-bottom:10px;
+					 }
+					 ol{
+					   padding-left: 0!important;
+					 }
+						 line-height: 1.3em;
+						 font-size: 0.8em;
+						 float: right;
+					.toc{
+						padding: 0;
+					   li{
+						 list-style-type: none;
+						 margin: .5em 0 .5em;
+					 ol{
+					   margin: .5em 0 .5em 1em;
+					 }
+				   }
+				 }
+					   .article2{
+					 margin-right: 211px;
+					 transition: margin-right .5s ease-in;
+				   }
+					 .toc-item span {
+					 display: table-cell;
+					 }
+					 span.toc-text {
+					 padding-left: 3px;
+					}
+
+					}
+		
+		</style>
 			
 				<h2 id="1-组件-基本"><a href="#1-组件-基本" class="headerlink" title="1.组件(基本)"></a>1.组件(基本)</h2><h6 id="1-1定义组件"><a href="#1-1定义组件" class="headerlink" title="1.1定义组件"></a>1.1定义组件</h6><a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 名字 <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">     <span class="keyword">return</span> &lt;span&gt;111&lt;/span&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -442,8 +502,8 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2017/11/20/markdown/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">欢迎使用 Cmd Markdown 编辑阅读器</div>
+    <a href="/2017/11/20/hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建个人博客Hexo并托管至github上</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -604,19 +664,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Win</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">Win</a>
               </li>
              
               <li class="article-tag-list-item">
