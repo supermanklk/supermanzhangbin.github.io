@@ -263,14 +263,28 @@ var _hmt = _hmt || [];
         
 		<div class="category-all-page">
 			<div class="category-all-title">
-			counter.categories
 			</div>
 			
 			<div class="category-all">
 			<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Atom/">Atom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Emmet/">Emmet</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/React/">React</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Win/">Win</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/研/">研</a><span class="category-list-count">1</span></li></ul>
 			</div>
-			
+
 		</div>
+					<style>
+						.category-list-item:after {
+						content: '';
+						clear: both;
+						display: table;
+					  }
+					 .category-list-count {
+   
+						margin-left: 5px;
+					  }
+
+					  .category-list-count:after {
+						content: ' 篇文章';
+					  }
+					</style>
 		
 		
 	

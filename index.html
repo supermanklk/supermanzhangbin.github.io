@@ -262,84 +262,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
         
-			
-			
-			<div id="toc" class="toc-article">
-			  <strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#增加目录"><span class="toc-text">增加目录</span></a></li></ol>
-			</div>
-					<style>
-					@media (max-width: 1099px) {
-					
-					#toc {
-					background : #fff;
-					display:none;
-					}
-					}
-					
-					@media (min-width: 1100px) {
-					#toc {
-					border: 1px solid #fff;
-					background : #fff;
-					z-index: 999;
-					top:150px;
-					right:30px;
-					transition:right .5s ease-in;
-					padding: 0 1em;
-					position:fixed;
-					width:200px;
-					}
-					h2{
-					   margin-bottom:10px;
-					 }
-					 ol{
-					   padding-left: 0!important;
-					 }
-						 line-height: 1.3em;
-						 font-size: 0.8em;
-						 float: right;
-					.toc{
-						padding: 0;
-					   li{
-						 list-style-type: none;
-						 margin: .5em 0 .5em;
-					 ol{
-					   margin: .5em 0 .5em 1em;
-					 }
-				   }
-				 }
-					   .article2{
-					 margin-right: 211px;
-					 transition: margin-right .5s ease-in;
-				   }
-					 .toc-item span {
-					 display: table-cell;
-					 }
-					 span.toc-text {
-					 padding-left: 3px;
-					}
-
-					}
-		
-		</style>
-			
-				<h2 id="增加目录"><a href="#增加目录" class="headerlink" title="增加目录"></a>增加目录</h2><ul>
-<li>在F:\hexo\blog5\themes\yilia\layout_partial下修改article.ejs文件<br>(注意在修改article.ejs的时候尽量你备份一份 以防万一出现错误)</li>
-<li><p>将下面代码放在&lt;%- post.content %&gt;之上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if(post.toc == true)&#123; %&gt;</span><br><span class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</span><br><span class="line">  &lt;strong class=&quot;toc-title&quot;&gt;文章目录&lt;/strong&gt;</span><br><span class="line">&lt;%- toc(post.content, &#123;list_number: false&#125;) %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这其中加了一个判断，默认是不加目录的（当然你也可以改成post.toc == false，<br>这样默认就是添加目录的情况啦），如果想在文章中使用目录的话，可以在 front-matter里加上 toc: true 即可. 像这样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: &quot;在Hexo中给文章加目录(Table Of Contents)&quot;</span><br><span class="line">date:</span><br><span class="line">tags: [Hexo]</span><br><span class="line">toc: true</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>直接在下面后面增加一个style标签 内容为下面css样式</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- toc(post.content, &#123;<span class="attr">list_number</span>: <span class="literal">false</span>&#125;) %&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;style&gt;</span></span><br><span class="line"><span class="regexp">....</span></span><br><span class="line"><span class="regexp">&lt;style/</span>&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.toc-article &#123;</span><br><span class="line">    background: #eee;</span><br><span class="line">    margin: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">.5</span>em;</span><br><span class="line">    padding: <span class="number">1</span>em</span><br><span class="line">&#125;</span><br><span class="line">.toc-article strong &#123;</span><br><span class="line">    padding: <span class="number">.3</span>em <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#toc &#123;</span><br><span class="line">    line-height: <span class="number">1.6</span>em;</span><br><span class="line">    font-size: <span class="number">.8</span>em;</span><br><span class="line">    float: right</span><br><span class="line">&#125;</span><br><span class="line">#toc .toc &#123;</span><br><span class="line">    padding: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">#toc .toc li &#123;</span><br><span class="line">    list-style-type: none</span><br><span class="line">&#125;</span><br><span class="line">#toc ol &#123;</span><br><span class="line">    margin-left: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">#toc .toc-child &#123;</span><br><span class="line">    padding-left: <span class="number">1.5</span>em</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>另一种样式<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">@media (max-<span class="symbol">width:</span> <span class="number">1099</span>px) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">#toc &#123;</span></span><br><span class="line">background : <span class="comment">#fff;</span></span><br><span class="line"><span class="symbol">display:</span>none;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media (min-<span class="symbol">width:</span> <span class="number">1100</span>px) &#123;</span><br><span class="line"><span class="comment">#toc &#123;</span></span><br><span class="line"><span class="symbol">border:</span> <span class="number">1</span>px solid <span class="comment">#fff;</span></span><br><span class="line">background : <span class="comment">#fff;</span></span><br><span class="line">z-<span class="symbol">index:</span> <span class="number">999</span>;</span><br><span class="line"><span class="symbol">top:</span><span class="number">150</span>px;</span><br><span class="line"><span class="symbol">right:</span><span class="number">30</span>px;</span><br><span class="line"><span class="symbol">transition:</span>right .<span class="number">5</span>s ease-<span class="keyword">in</span>;</span><br><span class="line"><span class="symbol">padding:</span> <span class="number">0</span> <span class="number">1</span>em;</span><br><span class="line"><span class="symbol">position:</span>fixed;</span><br><span class="line"><span class="symbol">width:</span><span class="number">200</span>px;</span><br><span class="line">&#125;</span><br><span class="line">h2&#123;</span><br><span class="line">   margin-<span class="symbol">bottom:</span><span class="number">10</span>px;</span><br><span class="line"> &#125;</span><br><span class="line"> ol&#123;</span><br><span class="line">   padding-<span class="symbol">left:</span> <span class="number">0</span>!important;</span><br><span class="line"> &#125;</span><br><span class="line">	 line-<span class="symbol">height:</span> <span class="number">1.3</span>em;</span><br><span class="line">	 font-<span class="symbol">size:</span> <span class="number">0</span>.<span class="number">8</span>em;</span><br><span class="line">	 <span class="symbol">float:</span> right;</span><br><span class="line">.toc&#123;</span><br><span class="line">	<span class="symbol">padding:</span> <span class="number">0</span>;</span><br><span class="line">   li&#123;</span><br><span class="line">	 list-style-<span class="symbol">type:</span> none;</span><br><span class="line">	 <span class="symbol">margin:</span> .<span class="number">5</span>em <span class="number">0</span> .<span class="number">5</span>em;</span><br><span class="line"> ol&#123;</span><br><span class="line">   <span class="symbol">margin:</span> .<span class="number">5</span>em <span class="number">0</span> .<span class="number">5</span>em <span class="number">1</span>em;</span><br><span class="line"> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">   .article2&#123;</span><br><span class="line"> margin-<span class="symbol">right:</span> <span class="number">211</span>px;</span><br><span class="line"> <span class="symbol">transition:</span> margin-right .<span class="number">5</span>s ease-<span class="keyword">in</span>;</span><br><span class="line">  &#125;</span><br><span class="line"> .toc-item span &#123;</span><br><span class="line"> <span class="symbol">display:</span> table-cell;</span><br><span class="line"> &#125;</span><br><span class="line"> span.toc-text &#123;</span><br><span class="line"> padding-<span class="symbol">left:</span> <span class="number">3</span>px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+					<h2 id="增加目录"><a href="#增加目录" class="headerlink" title="增加目录"></a>增加目录</h2>
 			
 		
 		
@@ -530,7 +453,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
         
-					<h4 id="1-输出1000以内的回文数"><a href="#1-输出1000以内的回文数" class="headerlink" title="1.输出1000以内的回文数"></a>1.输出1000以内的回文数</h4><blockquote>
+					<h4 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h4><p>1.输出1000以内的回文数</p>
+<blockquote>
 <p>filter(function, iterable) 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成新的列表。<br>
 			
 		
@@ -626,81 +550,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
         
-			
-			
-			<div id="toc" class="toc-article">
-			  <strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#安装中文插件-File-gt-Settings-gt-Install-gt-搜索包名-simplified-chinese-menu-安装以后会自动立即汉化-如果没有的话可以重启下Atom"><span class="toc-text">安装中文插件 File > Settings > Install > 搜索包名:simplified-chinese-menu 安装以后会自动立即汉化,如果没有的话可以重启下Atom</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-安装Atom以后-代码区内莫名奇妙出现了一根竖线-其实是告诉你代码尽量不要超过其线-即80个字符"><span class="toc-text">1.安装Atom以后.代码区内莫名奇妙出现了一根竖线(其实是告诉你代码尽量不要超过其线,即80个字符),</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#去掉的方法-File-gt-Settings-gt-Editor-gt-Preferred-Line-Length"><span class="toc-text">去掉的方法:File > Settings > Editor > Preferred Line Length</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#中文-文件-gt-设置-gt-编译器设置-gt-一行的长度"><span class="toc-text">中文(文件 > 设置 > 编译器设置 > 一行的长度)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-安装包"><span class="toc-text">2.安装包</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#atom-beautify"><span class="toc-text">atom-beautify</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#minimap"><span class="toc-text">minimap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#browser-plus"><span class="toc-text">browser-plus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#highlight-selected"><span class="toc-text">highlight-selected</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docblockr"><span class="toc-text">docblockr</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#autocomplete-paths"><span class="toc-text">autocomplete-paths</span></a>
-			</div>
-					<style>
-					@media (max-width: 1099px) {
-					
-					#toc {
-					background : #fff;
-					display:none;
-					}
-					}
-					
-					@media (min-width: 1100px) {
-					#toc {
-					border: 1px solid #fff;
-					background : #fff;
-					z-index: 999;
-					top:150px;
-					right:30px;
-					transition:right .5s ease-in;
-					padding: 0 1em;
-					position:fixed;
-					width:200px;
-					}
-					h2{
-					   margin-bottom:10px;
-					 }
-					 ol{
-					   padding-left: 0!important;
-					 }
-						 line-height: 1.3em;
-						 font-size: 0.8em;
-						 float: right;
-					.toc{
-						padding: 0;
-					   li{
-						 list-style-type: none;
-						 margin: .5em 0 .5em;
-					 ol{
-					   margin: .5em 0 .5em 1em;
-					 }
-				   }
-				 }
-					   .article2{
-					 margin-right: 211px;
-					 transition: margin-right .5s ease-in;
-				   }
-					 .toc-item span {
-					 display: table-cell;
-					 }
-					 span.toc-text {
-					 padding-left: 3px;
-					}
-
-					}
-		
-		</style>
-			
-				<blockquote>
-<p>本文只对安装Atom以后出现的小问题进行总结,下载可是直接到<a href="https://atom.io/" target="_blank" rel="noopener">官网</a>上下载.</p>
-</blockquote>
-<p>首先我认为咱国人使用Atom先安装个中文插件,着对于小白来说是非常重要的如果大神就……… 我的版本为:1.22.1</p>
-<blockquote>
-<h5 id="安装中文插件-File-gt-Settings-gt-Install-gt-搜索包名-simplified-chinese-menu-安装以后会自动立即汉化-如果没有的话可以重启下Atom"><a href="#安装中文插件-File-gt-Settings-gt-Install-gt-搜索包名-simplified-chinese-menu-安装以后会自动立即汉化-如果没有的话可以重启下Atom" class="headerlink" title="安装中文插件 File &gt; Settings &gt; Install &gt; 搜索包名:simplified-chinese-menu 安装以后会自动立即汉化,如果没有的话可以重启下Atom"></a>安装中文插件 File &gt; Settings &gt; Install &gt; 搜索包名:simplified-chinese-menu 安装以后会自动立即汉化,如果没有的话可以重启下Atom</h5><p><img src="http://upload-images.jianshu.io/upload_images/9132651-6efe0ea0ba597adb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</blockquote>
-<h5 id="1-安装Atom以后-代码区内莫名奇妙出现了一根竖线-其实是告诉你代码尽量不要超过其线-即80个字符"><a href="#1-安装Atom以后-代码区内莫名奇妙出现了一根竖线-其实是告诉你代码尽量不要超过其线-即80个字符" class="headerlink" title="1.安装Atom以后.代码区内莫名奇妙出现了一根竖线(其实是告诉你代码尽量不要超过其线,即80个字符),"></a>1.安装Atom以后.代码区内莫名奇妙出现了一根竖线(其实是告诉你代码尽量不要超过其线,即80个字符),</h5><h6 id="去掉的方法-File-gt-Settings-gt-Editor-gt-Preferred-Line-Length"><a href="#去掉的方法-File-gt-Settings-gt-Editor-gt-Preferred-Line-Length" class="headerlink" title="去掉的方法:File &gt; Settings &gt; Editor &gt; Preferred Line Length"></a>去掉的方法:File &gt; Settings &gt; Editor &gt; Preferred Line Length</h6><h6 id="中文-文件-gt-设置-gt-编译器设置-gt-一行的长度"><a href="#中文-文件-gt-设置-gt-编译器设置-gt-一行的长度" class="headerlink" title="中文(文件 &gt; 设置 &gt; 编译器设置 &gt; 一行的长度)"></a>中文(文件 &gt; 设置 &gt; 编译器设置 &gt; 一行的长度)</h6><h4 id="2-安装包"><a href="#2-安装包" class="headerlink" title="2.安装包"></a>2.安装包</h4><h1 id="atom-beautify"><a href="#atom-beautify" class="headerlink" title="atom-beautify"></a><a href="https://atom.io/packages/atom-beautify" target="_blank" rel="noopener">atom-beautify</a></h1><p>代码格式一键美化，支持多种语言格式化，例如：HTML, CSS, JavaScript, PHP, Python, Ruby, Java, C, C++, C#, Objective-C, CoffeeScript, TypeScript, Coldfusion, SQL …</p>
-<h1 id="minimap"><a href="#minimap" class="headerlink" title="minimap"></a><a href="https://atom.io/packages/minimap" target="_blank" rel="noopener">minimap</a></h1><p>仿sublime text的缩略代码查看，想找的地方一目了然。</p>
-<h1 id="browser-plus"><a href="#browser-plus" class="headerlink" title="browser-plus"></a><a href="https://atom.io/packages/browser-plus" target="_blank" rel="noopener">browser-plus</a></h1><p>编辑器内置浏览器</p>
-<h1 id="highlight-selected"><a href="#highlight-selected" class="headerlink" title="highlight-selected"></a><a href="https://atom.io/packages/highlight-selected" target="_blank" rel="noopener">highlight-selected</a></h1><p>选择某段代码自动高亮相同代码</p>
-<h1 id="docblockr"><a href="#docblockr" class="headerlink" title="docblockr"></a><a href="https://atom.io/packages/docblockr" target="_blank" rel="noopener">docblockr</a></h1><p>智能代码注释，让注释更有规范</p>
-<h1 id="autocomplete-paths"><a href="#autocomplete-paths" class="headerlink" title="autocomplete-paths"></a><a href="https://atom.io/packages/autocomplete-paths" target="_blank" rel="noopener">autocomplete-paths</a></h1><p>自动补全文件路径</p>
-
+					<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><blockquote>
+<p>本文只对安装Atom以后出现的小问题进行总结,下载可是直接到<a href="https://atom.io/" target="_blank" rel="noopener">官网</a>上下载.<br>
 			
 		
 		
@@ -1180,7 +1031,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
         
-					<h3 id="搭建个人博客Hexo并托管至github上"><a href="#搭建个人博客Hexo并托管至github上" class="headerlink" title="搭建个人博客Hexo并托管至github上"></a>搭建个人博客Hexo并托管至github上</h3>
+					<h4 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境:"></a>搭建环境:</h4>
 			
 		
 		

@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>搭建个人博客Hexo并托管至github上 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="搭建个人博客Hexo并托管至github上">
+  <meta name="description" content="搭建环境:">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建个人博客Hexo并托管至github上">
 <meta property="og:url" content="http://yoursite.com/2017/11/20/hexo/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
-<meta property="og:description" content="搭建个人博客Hexo并托管至github上">
-<meta property="og:updated_time" content="2017-12-08T04:26:00.031Z">
+<meta property="og:description" content="搭建环境:">
+<meta property="og:updated_time" content="2017-12-11T13:13:52.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客Hexo并托管至github上">
-<meta name="twitter:description" content="搭建个人博客Hexo并托管至github上">
+<meta name="twitter:description" content="搭建环境:">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
 			
 			<div id="toc" class="toc-article">
 			  <strong class="toc-title">文章目录</strong>
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#搭建个人博客Hexo并托管至github上"><span class="toc-text">搭建个人博客Hexo并托管至github上</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#搭建环境"><span class="toc-text">搭建环境:</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#搭建环境"><span class="toc-text">搭建环境:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Hexo"><span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主题"><span class="toc-text">主题</span></a></li></ol>
 			</div>
 					<style>
 					@media (max-width: 1099px) {
@@ -283,10 +283,11 @@ var _hmt = _hmt || [];
 					@media (min-width: 1100px) {
 					#toc {
 					border: 1px solid #fff;
+					border-radius: 15px;
 					background : #fff;
 					z-index: 999;
 					top:150px;
-					right:30px;
+					right:33px;
 					transition:right .5s ease-in;
 					padding: 0 1em;
 					position:fixed;
@@ -326,13 +327,12 @@ var _hmt = _hmt || [];
 		
 		</style>
 			
-				<h3 id="搭建个人博客Hexo并托管至github上"><a href="#搭建个人博客Hexo并托管至github上" class="headerlink" title="搭建个人博客Hexo并托管至github上"></a>搭建个人博客Hexo并托管至github上</h3><a id="more"></a>
-<h4 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境:"></a>搭建环境:</h4><blockquote>
+				<h4 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境:"></a>搭建环境:</h4><a id="more"></a>
+<blockquote>
 <p> 1.node.js (因为Hexo是基于node.js框架) 参考下载地址(<a href="http://www.w3cschool.cc/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">http://www.w3cschool.cc/nodejs/nodejs-install-setup.html</a>)<br> 2.git (目的是将hexo项目托管到github上) 参考下载地址：(<a href="http://git-scm.com/download/" target="_blank" rel="noopener">http://git-scm.com/download/</a>)</p>
 </blockquote>
-<p>####安装Hexo</p>
-<blockquote>
-<p>1.找一个目录新建一个文件夹,如hexo. 我是在d盘</p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><blockquote>
+<p>找一个目录新建一个文件夹,如hexo. 我是在d盘</p>
 </blockquote>
 <pre><code>$ cd d:/hexo
 $ npm install hexo-cli -g
@@ -342,15 +342,22 @@ $ npm install
 返回到blog目录 
 $ hexo g # 或者hexo generate
 $ hexo s # 或者hexo server，可以在http://localhost:4000/ 查看
-</code></pre><p>#####说明:</p>
+</code></pre><p>说明:</p>
 <blockquote>
 <p>1.hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹<br>2.hexo server (hexo s) 启动本地web服务，用于博客的预览<br>3.hexo deploy (hexo d) 部署播客到远端（比如github, heroku等平台）</p>
 </blockquote>
-<p>#####安装主题</p>
-<blockquote>
+<h4 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h4><ol>
+<li>安装主题<blockquote>
 <p>1.hexo clean<br>2.git clone <a href="https://github.com/litten/hexo-theme-yilia.git" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
-<p>#####启用主题<br>修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为yilia。 </p>
-<p>#####更新主题</p>
+</blockquote>
+</li>
+<li>启用主题<blockquote>
+<p>修改Hexo目录下的_config.yml配置文件中的theme属性，将其设置为yilia。 </p>
+</blockquote>
+</li>
+<li>更新主题</li>
+</ol>
+<blockquote>
 <p>cd themes/yilia<br>git pull #在yilia下操作</p>
 </blockquote>
 
@@ -514,7 +521,7 @@ $ hexo s # 或者hexo server，可以在http://localhost:4000/ 查看
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#搭建个人博客Hexo并托管至github上"><span class="toc-number">1.</span> <span class="toc-text">搭建个人博客Hexo并托管至github上</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#搭建环境"><span class="toc-number">1.1.</span> <span class="toc-text">搭建环境:</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#搭建环境"><span class="toc-number">1.</span> <span class="toc-text">搭建环境:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Hexo"><span class="toc-number">2.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主题"><span class="toc-number">3.</span> <span class="toc-text">主题</span></a></li></ol>
                     </div>
                 </span>
             </div>
