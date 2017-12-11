@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Hexo | Superman Bin&#39;s Blog</title>
+  <title>Hexo-创建目录 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Superman Bin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Hexo/index.html">
+  <meta name="description" content="增加目录 在F:\hexo\blog5\themes\yilia\layout_partial下修改article.ejs文件(注意在修改article.ejs的时候尽量你备份一份 以防万一出现错误) 将下面代码放在&amp;lt;%- post.content %&amp;gt;之上 123456&amp;lt;% ">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo-创建目录">
+<meta property="og:url" content="http://yoursite.com/2017/12/11/Hexo-toc/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
+<meta property="og:description" content="增加目录 在F:\hexo\blog5\themes\yilia\layout_partial下修改article.ejs文件(注意在修改article.ejs的时候尽量你备份一份 以防万一出现错误) 将下面代码放在&amp;lt;%- post.content %&amp;gt;之上 123456&amp;lt;% if(post.toc == true)&amp;#123; %&amp;gt;&amp;lt;div id=&amp;quot;toc">
+<meta property="og:updated_time" content="2017-12-11T03:50:52.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Superman Bin&#39;s Blog">
+<meta name="twitter:title" content="Hexo-创建目录">
+<meta name="twitter:description" content="增加目录 在F:\hexo\blog5\themes\yilia\layout_partial下修改article.ejs文件(注意在修改article.ejs的时候尽量你备份一份 以防万一出现错误) 将下面代码放在&amp;lt;%- post.content %&amp;gt;之上 123456&amp;lt;% if(post.toc == true)&amp;#123; %&amp;gt;&amp;lt;div id=&amp;quot;toc">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -232,24 +237,19 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Hexo-toc" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Hexo-创建目录
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/11/Hexo-toc/" class="archive-article-date">
+
+        
+        <a href="/2017/12/11/Hexo-toc/" class="archive-article-date">
   	<time datetime="2017-12-11T03:43:28.042Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
 </a>
 <a href="/2017/12/11/Hexo-toc/" class="archive-article-date">
@@ -260,16 +260,130 @@ var _hmt = _hmt || [];
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/11/Hexo-toc/">Hexo-创建目录</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+			
+			
+			<div id="toc" class="toc-article">
+			  <strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#增加目录"><span class="toc-text">增加目录</span></a></li></ol>
+			</div>
+					<style>
+					@media (max-width: 1099px) {
+					
+					#toc {
+					background : #fff;
+					display:none;
+					}
+					}
+					
+					@media (min-width: 1100px) {
+					#toc {
+					border: 1px solid #fff;
+					background : #fff;
+					z-index: 999;
+					top:150px;
+					right:30px;
+					transition:right .5s ease-in;
+					padding: 0 1em;
+					position:fixed;
+					width:200px;
+					}
+					h2{
+					   margin-bottom:10px;
+					 }
+					 ol{
+					   padding-left: 0!important;
+					 }
+						 line-height: 1.3em;
+						 font-size: 0.8em;
+						 float: right;
+					.toc{
+						padding: 0;
+					   li{
+						 list-style-type: none;
+						 margin: .5em 0 .5em;
+					 ol{
+					   margin: .5em 0 .5em 1em;
+					 }
+				   }
+				 }
+					   .article2{
+					 margin-right: 211px;
+					 transition: margin-right .5s ease-in;
+				   }
+					 .toc-item span {
+					 display: table-cell;
+					 }
+					 span.toc-text {
+					 padding-left: 3px;
+					}
 
-        <div class="article-info info-on-right">
-          
+					}
+		
+		</style>
+			
+				<h2 id="增加目录"><a href="#增加目录" class="headerlink" title="增加目录"></a>增加目录</h2><ul>
+<li>在F:\hexo\blog5\themes\yilia\layout_partial下修改article.ejs文件<br>(注意在修改article.ejs的时候尽量你备份一份 以防万一出现错误)</li>
+<li><p>将下面代码放在&lt;%- post.content %&gt;之上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if(post.toc == true)&#123; %&gt;</span><br><span class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</span><br><span class="line">  &lt;strong class=&quot;toc-title&quot;&gt;文章目录&lt;/strong&gt;</span><br><span class="line">&lt;%- toc(post.content, &#123;list_number: false&#125;) %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这其中加了一个判断，默认是不加目录的（当然你也可以改成post.toc == false，<br>这样默认就是添加目录的情况啦），如果想在文章中使用目录的话，可以在 front-matter里加上 toc: true 即可. 像这样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: &quot;在Hexo中给文章加目录(Table Of Contents)&quot;</span><br><span class="line">date:</span><br><span class="line">tags: [Hexo]</span><br><span class="line">toc: true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>直接在下面后面增加一个style标签 内容为下面css样式</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- toc(post.content, &#123;<span class="attr">list_number</span>: <span class="literal">false</span>&#125;) %&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;style&gt;</span></span><br><span class="line"><span class="regexp">....</span></span><br><span class="line"><span class="regexp">&lt;style/</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">.toc-article &#123;</span><br><span class="line">    background: #eee;</span><br><span class="line">    margin: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">.5</span>em;</span><br><span class="line">    padding: <span class="number">1</span>em</span><br><span class="line">&#125;</span><br><span class="line">.toc-article strong &#123;</span><br><span class="line">    padding: <span class="number">.3</span>em <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#toc &#123;</span><br><span class="line">    line-height: <span class="number">1.6</span>em;</span><br><span class="line">    font-size: <span class="number">.8</span>em;</span><br><span class="line">    float: right</span><br><span class="line">&#125;</span><br><span class="line">#toc .toc &#123;</span><br><span class="line">    padding: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">#toc .toc li &#123;</span><br><span class="line">    list-style-type: none</span><br><span class="line">&#125;</span><br><span class="line">#toc ol &#123;</span><br><span class="line">    margin-left: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">#toc .toc-child &#123;</span><br><span class="line">    padding-left: <span class="number">1.5</span>em</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>另一种样式<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">@media (max-<span class="symbol">width:</span> <span class="number">1099</span>px) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">#toc &#123;</span></span><br><span class="line">background : <span class="comment">#fff;</span></span><br><span class="line"><span class="symbol">display:</span>none;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media (min-<span class="symbol">width:</span> <span class="number">1100</span>px) &#123;</span><br><span class="line"><span class="comment">#toc &#123;</span></span><br><span class="line"><span class="symbol">border:</span> <span class="number">1</span>px solid <span class="comment">#fff;</span></span><br><span class="line">background : <span class="comment">#fff;</span></span><br><span class="line">z-<span class="symbol">index:</span> <span class="number">999</span>;</span><br><span class="line"><span class="symbol">top:</span><span class="number">150</span>px;</span><br><span class="line"><span class="symbol">right:</span><span class="number">30</span>px;</span><br><span class="line"><span class="symbol">transition:</span>right .<span class="number">5</span>s ease-<span class="keyword">in</span>;</span><br><span class="line"><span class="symbol">padding:</span> <span class="number">0</span> <span class="number">1</span>em;</span><br><span class="line"><span class="symbol">position:</span>fixed;</span><br><span class="line"><span class="symbol">width:</span><span class="number">200</span>px;</span><br><span class="line">&#125;</span><br><span class="line">h2&#123;</span><br><span class="line">   margin-<span class="symbol">bottom:</span><span class="number">10</span>px;</span><br><span class="line"> &#125;</span><br><span class="line"> ol&#123;</span><br><span class="line">   padding-<span class="symbol">left:</span> <span class="number">0</span>!important;</span><br><span class="line"> &#125;</span><br><span class="line">	 line-<span class="symbol">height:</span> <span class="number">1.3</span>em;</span><br><span class="line">	 font-<span class="symbol">size:</span> <span class="number">0</span>.<span class="number">8</span>em;</span><br><span class="line">	 <span class="symbol">float:</span> right;</span><br><span class="line">.toc&#123;</span><br><span class="line">	<span class="symbol">padding:</span> <span class="number">0</span>;</span><br><span class="line">   li&#123;</span><br><span class="line">	 list-style-<span class="symbol">type:</span> none;</span><br><span class="line">	 <span class="symbol">margin:</span> .<span class="number">5</span>em <span class="number">0</span> .<span class="number">5</span>em;</span><br><span class="line"> ol&#123;</span><br><span class="line">   <span class="symbol">margin:</span> .<span class="number">5</span>em <span class="number">0</span> .<span class="number">5</span>em <span class="number">1</span>em;</span><br><span class="line"> &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">   .article2&#123;</span><br><span class="line"> margin-<span class="symbol">right:</span> <span class="number">211</span>px;</span><br><span class="line"> <span class="symbol">transition:</span> margin-right .<span class="number">5</span>s ease-<span class="keyword">in</span>;</span><br><span class="line">  &#125;</span><br><span class="line"> .toc-item span &#123;</span><br><span class="line"> <span class="symbol">display:</span> table-cell;</span><br><span class="line"> &#125;</span><br><span class="line"> span.toc-text &#123;</span><br><span class="line"> padding-<span class="symbol">left:</span> <span class="number">3</span>px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+			
+		
+		
+	
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/AliPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/WeChatPay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -281,7 +395,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -294,131 +408,127 @@ var _hmt = _hmt || [];
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/21/Hexocom/" class="archive-article-date">
-  	<time datetime="2017-11-21T12:37:18.719Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
-</a>
-<a href="/2017/11/21/Hexocom/" class="archive-article-date">
-  	<time datetime="2017-11-21T12:37:18.719Z" itemprop="datePublished">2017-11-21</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
     </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/21/Hexocom/">Hexo如何绑定域名</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/hexo/" class="archive-article-date">
-  	<time datetime="2017-11-20T05:33:23.551Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-<a href="/2017/11/20/hexo/" class="archive-article-date">
-  	<time datetime="2017-11-20T05:33:23.551Z" itemprop="datePublished">2017-11-20</time>
-  	<span id="busuanzi_container_page_pv" style="color:DarkGray">
-      view <span id="busuanzi_value_page_pv"></span> times
+      </div>
     </span>
-</a>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/hexo/">搭建个人博客Hexo并托管至github上</a>
-    </h1>
-  
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/11/Hexo-toc/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/08/Emmet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Emmet介绍与使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#增加目录"><span class="toc-number">1.</span> <span class="toc-text">增加目录</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="Hexo-toc" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyt3J8IJB",
+        conf: "0df7c4ad1c1feff109a5a2e6a86d9c4d"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -441,9 +551,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
