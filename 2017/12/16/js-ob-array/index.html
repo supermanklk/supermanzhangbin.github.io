@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Emmet | Superman Bin&#39;s Blog</title>
+  <title>Javascript-引用类型详解 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Superman Bin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Emmet/index.html">
+  <meta name="description" content="引用类型在ECMAScript中,引用类型是一种数据结构,用于将数据和功能组织在一起,它也常被称为类.&amp;lt;–more–&amp;gt;  虽然引用类型与类看起来相似,但它们并不是相同概念.  对象是某个特定引用类型的实例. 新对象是使用new操作符跟一个构造函数来创建的.12var person = new">
+<meta name="keywords" content="JS引用类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript-引用类型详解">
+<meta property="og:url" content="http://yoursite.com/2017/12/16/js-ob-array/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
+<meta property="og:description" content="引用类型在ECMAScript中,引用类型是一种数据结构,用于将数据和功能组织在一起,它也常被称为类.&amp;lt;–more–&amp;gt;  虽然引用类型与类看起来相似,但它们并不是相同概念.  对象是某个特定引用类型的实例. 新对象是使用new操作符跟一个构造函数来创建的.12var person = new Object();// 这行代码创建了Object()引用类型的一个新的实例 object类型">
+<meta property="og:updated_time" content="2017-12-16T09:51:20.210Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Superman Bin&#39;s Blog">
+<meta name="twitter:title" content="Javascript-引用类型详解">
+<meta name="twitter:description" content="引用类型在ECMAScript中,引用类型是一种数据结构,用于将数据和功能组织在一起,它也常被称为类.&amp;lt;–more–&amp;gt;  虽然引用类型与类看起来相似,但它们并不是相同概念.  对象是某个特定引用类型的实例. 新对象是使用new操作符跟一个构造函数来创建的.12var person = new Object();// 这行代码创建了Object()引用类型的一个新的实例 object类型">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -232,79 +237,340 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-js-ob-array" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Javascript-引用类型详解
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/08/Emmet/" class="archive-article-date">
-  	<time datetime="2017-12-08T01:46:46.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+
+        
+        <a href="/2017/12/16/js-ob-array/" class="archive-article-date">
+  	<time datetime="2017-12-16T09:51:05.957Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
 </a>
-<a href="/2017/12/08/Emmet/" class="archive-article-date">
-  	<time datetime="2017-12-08T01:46:46.804Z" itemprop="datePublished">2017-12-08</time>
+<a href="/2017/12/16/js-ob-array/" class="archive-article-date">
+  	<time datetime="2017-12-16T09:51:05.957Z" itemprop="datePublished">2017-12-16</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/08/Emmet/">Emmet介绍与使用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+			
+			
+			<div id="toc" class="toc-article">
+			  <strong class="toc-title">文章目录</strong>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用类型"><span class="toc-text">引用类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#object类型"><span class="toc-text">object类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-类型"><span class="toc-text">Array()类型</span></a></li></ol>
+			</div>
+					<style>
+					@media (max-width: 1099px) {
+					
+					#toc {
+					background : #fff;
+					display:none;
+					}
+					}
+					
+					@media (min-width: 1100px) {
+					#toc {
+					border: 1px solid #fff;
+					border-radius: 15px;
+					background : #fff;
+					z-index: 999;
+					top:150px;
+					right:33px;
+					transition:right .5s ease-in;
+					padding: 0 1em;
+					position:fixed;
+					width:200px;
+					}
+					h2{
+					   margin-bottom:10px;
+					 }
+					 ol{
+					   padding-left: 0!important;
+					 }
+						 line-height: 1.3em;
+						 font-size: 0.8em;
+						 float: right;
+					.toc{
+						padding: 0;
+					   li{
+						 list-style-type: none;
+						 margin: .5em 0 .5em;
+					 ol{
+					   margin: .5em 0 .5em 1em;
+					 }
+				   }
+				 }
+					   .article2{
+					 margin-right: 211px;
+					 transition: margin-right .5s ease-in;
+				   }
+					 .toc-item span {
+					 display: table-cell;
+					 }
+					 span.toc-text {
+					 padding-left: 3px;
+					}
 
-        <div class="article-info info-on-right">
-          
+					}
+		
+		</style>
+			
+				<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>在ECMAScript中,<strong>引用类型</strong>是一种数据结构,用于将数据和功能组织在一起,它也常被称为<strong>类</strong>.<br>&lt;–more–&gt;</p>
+<blockquote>
+<p>虽然引用类型与类看起来相似,但它们并不是相同概念.</p>
+</blockquote>
+<p><strong>对象</strong>是某个特定引用类型的实例. 新对象是使用new操作符跟一个构造函数来创建的.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="comment">// 这行代码创建了Object()引用类型的一个新的实例</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="object类型"><a href="#object类型" class="headerlink" title="object类型"></a>object类型</h2><blockquote>
+<p><strong>创建Object实例的方式有2种.</strong></p>
+</blockquote>
+<p>1.第一种是使用<strong>new操作符后跟一个构造函数</strong>.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"supermanBin"</span>;</span><br><span class="line">person.age = <span class="number">29</span>;</span><br></pre></td></tr></table></figure></p>
+<p>2.第二种是使用<strong>对象字面量</strong>表示法.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">      name  :  <span class="string">"supermanBin"</span>,</span><br><span class="line">      age : <span class="number">29</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 上面代码等价与下面代码(属性名也可以使用字符串)</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">      <span class="string">"name"</span>  :  <span class="string">"supermanBin"</span>,</span><br><span class="line">      <span class="string">"age"</span> : <span class="number">29</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person = &#123;&#125;  ===  <span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>()     <span class="comment">//True</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>对象字面量也是向函数传递大量参数可选参数的首选方式</strong></p>
+</blockquote>
+<p>1.这种传递参数的模式最适合需要向函数传递大量可选参数的情形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function superman(obj) &#123;</span><br><span class="line">      var out = &quot;&quot;;</span><br><span class="line">      if(typeof obj.name == &quot;string&quot;) &#123;</span><br><span class="line">      ...</span><br><span class="line">      &#125;</span><br><span class="line">      if(typeof obj.age == &quot;number&quot;) &#123;</span><br><span class="line">      ...</span><br><span class="line">      &#125; </span><br><span class="line">&#125;</span><br><span class="line">//调用superman传递对象字面量</span><br><span class="line">      superman(&#123;</span><br><span class="line">      name : &quot;supermanBIn&quot;,</span><br><span class="line">      age : 30</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>访问属性使用的”点”和”[]”</strong><br>1.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(person.name);  <span class="comment">//点 访问</span></span><br><span class="line">alert(person[<span class="string">"name"</span>]); <span class="comment">// [] 访问</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>2.[]的<strong>优点</strong>-[]可以通过<strong>变量</strong>来访问属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Name = <span class="string">"Saint"</span>;</span><br><span class="line">alert(person[Name]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以访问带有空格的属性</span></span><br><span class="line">alert(person[<span class="string">"superman Bin"</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>结束语: 能用<strong>点</strong>访问尽量不要使用<strong>[]</strong>访问.</p>
+<h2 id="Array-类型"><a href="#Array-类型" class="headerlink" title="Array()类型"></a>Array()类型</h2><p>引言:</p>
+<blockquote>
+<p>ECMAscript中的数组与其他语言的数组存在相当大的区别.<br><strong>不同之处:</strong><br>1.ECMAscript数组的每一项可以保存任何类型的数据(也就是说第一个位置可以保存字符串,第二位置可以保存数值,第三位置可以保存对象….)<br>2.ECMAScript数组的大小是可以动态调整的</p>
+<p><strong>创建数组基本方式有2种</strong></p>
+</blockquote>
+<p>1.使用<strong>new加Array()操作符</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> Attay(<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>);</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);      <span class="comment">//创建一个包含3项的数组</span></span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Supermanbin"</span>);    <span class="comment">//创建包含一项的数组</span></span><br></pre></td></tr></table></figure></p>
+<p>另外在使用Array构造函数时候也可以省略new操作符.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);     </span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Supermanbin"</span>);   </span><br><span class="line"><span class="comment">//上面 代码等价于下面代码</span></span><br><span class="line"><span class="keyword">var</span> colors = <span class="built_in">Array</span>(<span class="number">3</span>);     </span><br><span class="line"><span class="keyword">var</span> colors = <span class="built_in">Array</span>(<span class="string">"Supermanbin"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>2.使用<strong>数组字面量表示法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line"><span class="keyword">var</span> name = [];</span><br><span class="line"><span class="keyword">var</span> error1 = [,,];     <span class="comment">//不要这样 会创建包含2或3项的数组</span></span><br><span class="line"><span class="keyword">var</span> errpr2 = [<span class="number">1</span>,<span class="number">2</span>,]  <span class="comment">//不要这样 会创建包含2或3项的数组</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>数组特性</strong></p>
+</blockquote>
+<p><strong>数组的length属性很有特点—-它不是只读的.</strong><br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">      <span class="keyword">var</span> colors = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">      colors.length = <span class="number">2</span>; <span class="comment">//colors原来的length是3  现在改为2</span></span><br><span class="line">      alert(colors[<span class="number">2</span>]); <span class="comment">//undefined</span></span><br><span class="line"> <span class="comment">// 这个例子的数组colors一开始有3个值,将其属性设置为2会移除最后一项,结果就显示undefined.如</span></span><br><span class="line"><span class="comment">// 如果将其设置大于数组项数的值,则新增的每一项都会取得undefined的值</span></span><br><span class="line">      <span class="keyword">var</span> colors = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">      colors.length = <span class="number">4</span>;</span><br><span class="line">      alert(colors[<span class="number">3</span>]); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>增加数组新项.</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">colors[colors.length] = <span class="string">'d'</span>;</span><br><span class="line">colors[colors.length] = <span class="string">'e'</span>; <span class="comment">// colors === a b c d e</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>检测数组</strong></p>
+<ul>
+<li>第一种是 if (value instanceof Array) {} //有缺点,从A框架传入B框架的数组不行iframe <strong>一个页面/一个框架可以使用</strong></li>
+<li>第二种if (Array.isArray( values )) {}  // ES5新增的Array.isArray(value)方法 <strong>推荐使用</strong></li>
+</ul>
+<p><strong>转换方法 toLocaleString() toString() valueOf()</strong></p>
+<p>1.调用valuesOf()返回的是数组的本身<br>2.调用toString()返回由数组每一项的字符串形式拼接而成以逗号分隔的字符串.(实际上创建这个字符串,会调用数组每一项的toString方法)<br>3.调用toLocaleString()返回由数组每一项的字符串形式拼接而成以逗号分隔的字符串.(实际上创建这个字符串,会调用数组每一项的toLocaleString方法) <strong><em>toString()与toLocaleString()返回的结果一样</em></strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = &#123;</span><br><span class="line">      toLocaleString : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="string">"a"</span>;</span><br><span class="line">      &#125;,</span><br><span class="line">      toString : <span class="function"><span class="keyword">function</span> (<span class="params"></span>)  </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"b"</span>;</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">      toLocaleString : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"c"</span>;</span><br><span class="line">      &#125;,</span><br><span class="line">      toString : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      reutrn <span class="string">"d"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person = [person1, person2];</span><br><span class="line">alert(person); <span class="comment">// b d</span></span><br><span class="line">alert(person.toString()); <span class="comment">// b d</span></span><br><span class="line">alert(person.toLocaleString());  <span class="comment">// a c</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>join()</strong><br> toLocaleString() toString() valueOf()方法默认情况下都会以逗号分隔的字符串形式返回数项组,而使用join()方法,则可以用不同的分隔符来构建这个字符串.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line">alert(colors.join(<span class="string">","</span>)); <span class="comment">// a,b,c</span></span><br><span class="line">alert(colors.join(<span class="string">"#"</span>)); <span class="comment">// a#b#c</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>栈方法</strong><br>栈是一种LIFO(后进先出)的数据结构,也就是最新添加的最早被移除.而栈的插入(叫做推入)和移除(叫做弹出),值发生在一个位置–栈的顶部.ECMAScript为数组专门提供了<strong>push()</strong>和<strong>pop()</strong>方法,以便实现类似栈的行为.</p>
+<ul>
+<li>push() <strong>参数</strong>: 接受任意数量参数 <strong>功能</strong>:逐个添加到数组末尾 <strong>返回</strong>: 修改后数组长度</li>
+<li>pop()  <strong>参数</strong>:无         <strong>功能</strong>:从数组移除最后一项  <strong>返回</strong>:返回时移除的项</li>
+</ul>
+<p><strong>队列方法</strong><br>队列是FIFO(先进先出)的数据结构.</p>
+<ul>
+<li>shift( )<strong>返回</strong>:移除的项</li>
+<li>unshift() <strong>返回</strong>:修改后数组长度</li>
+</ul>
+<p><strong>重排序方法</strong></p>
+<ul>
+<li>reverse() //反转数组 这个方法相当直观明了,但是不够灵活 所以才有了sort()方法</li>
+<li>sort()   //sort比较的是每一项的字符串,这种排序很多情况都不是最佳选择,因为sort()可以接收一个比较函数作为参数(比较函数接收2个参数) </li>
+<li>比较函数-比较函数有2个参数,如果第一个参数应该位于第二个参数的之前则返回一个负数,如果2个参数相等则返回0,如果第一个参数应该位于第二个参数之后则返回一个正数,以下就是一个比较函数<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1, value2</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (value &lt; value2) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">      &#125; <span class="keyword">if</span> (value == value2) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       reutrn <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> values = [<span class="number">0</span>,<span class="number">1458</span>,<span class="number">45</span>,<span class="number">2</span>,<span class="number">56</span>,<span class="number">4</span>];</span><br><span class="line">values.sort(compare);</span><br><span class="line">alert(values); <span class="comment">// 0 2 4 56 1458</span></span><br><span class="line"></span><br><span class="line">简易写法:</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1, value2</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> value1 - value2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+			
+		
+		
+	
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/AliPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/WeChatPay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Emmet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JS引用类型</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Emmet//" class="article-tag-list-link color1">Emmet</a>
+        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/16/js-ob-array/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/13/Atom-tips/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Atom日常小技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用类型"><span class="toc-number">1.</span> <span class="toc-text">引用类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#object类型"><span class="toc-number">2.</span> <span class="toc-text">object类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Array-类型"><span class="toc-number">3.</span> <span class="toc-text">Array()类型</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="js-ob-array" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyt3J8IJB",
+        conf: "0df7c4ad1c1feff109a5a2e6a86d9c4d"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -327,9 +593,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
