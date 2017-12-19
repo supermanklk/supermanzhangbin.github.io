@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Atom-技巧 | Superman Bin&#39;s Blog</title>
+  <title>前台向后台跨域请求数据 | Superman Bin&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Superman Bin&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/Atom-技巧/index.html">
+  <meta name="description" content="我用的跨域请求的方法是CORS,以下是我实现的代码,能够跑起来.">
+<meta name="keywords" content="CORS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前台向后台跨域请求数据">
+<meta property="og:url" content="http://yoursite.com/2017/12/19/CORS1/index.html">
 <meta property="og:site_name" content="Superman Bin&#39;s Blog">
+<meta property="og:description" content="我用的跨域请求的方法是CORS,以下是我实现的代码,能够跑起来.">
+<meta property="og:updated_time" content="2017-12-19T12:20:36.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Superman Bin&#39;s Blog">
+<meta name="twitter:title" content="前台向后台跨域请求数据">
+<meta name="twitter:description" content="我用的跨域请求的方法是CORS,以下是我实现的代码,能够跑起来.">
   
     <link rel="alternative" href="/atom.xml" title="Superman Bin&#39;s Blog" type="application/atom+xml">
   
@@ -232,79 +237,294 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-CORS1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      前台向后台跨域请求数据
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/13/Atom-tips/" class="archive-article-date">
-  	<time datetime="2017-12-13T14:57:28.240Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
+
+        
+        <a href="/2017/12/19/CORS1/" class="archive-article-date">
+  	<time datetime="2017-12-19T11:35:32.997Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
 </a>
-<a href="/2017/12/13/Atom-tips/" class="archive-article-date">
-  	<time datetime="2017-12-13T14:57:28.240Z" itemprop="datePublished">2017-12-13</time>
+<a href="/2017/12/19/CORS1/" class="archive-article-date">
+  	<time datetime="2017-12-19T11:35:32.997Z" itemprop="datePublished">2017-12-19</time>
   	<span id="busuanzi_container_page_pv" style="color:DarkGray">
       view <span id="busuanzi_value_page_pv"></span> times
     </span>
 </a>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/Atom-tips/">Atom日常小技巧</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+			
+			
+			<div id="toc" class="toc-article">
+			  <strong class="toc-title">文章目录</strong>
+			
+			</div>
+					<style>
+					@media (max-width: 1099px) {
+					
+					#toc {
+					background : #fff;
+					display:none;
+					}
+					}
+					
+					@media (min-width: 1100px) {
+					#toc {
+					border: 1px solid #fff;
+					border-radius: 15px;
+					background : #fff;
+					z-index: 999;
+					top:150px;
+					right:33px;
+					transition:right .5s ease-in;
+					padding: 0 1em;
+					position:fixed;
+					width:200px;
+					}
+					h2{
+					   margin-bottom:10px;
+					 }
+					 ol{
+					   padding-left: 0!important;
+					 }
+						 line-height: 1.3em;
+						 font-size: 0.8em;
+						 float: right;
+					.toc{
+						padding: 0;
+					   li{
+						 list-style-type: none;
+						 margin: .5em 0 .5em;
+					 ol{
+					   margin: .5em 0 .5em 1em;
+					 }
+				   }
+				 }
+					   .article2{
+					 margin-right: 211px;
+					 transition: margin-right .5s ease-in;
+				   }
+					 .toc-item span {
+					 display: table-cell;
+					 }
+					 span.toc-text {
+					 padding-left: 3px;
+					}
 
-        <div class="article-info info-on-right">
-          
+					}
+		
+		</style>
+			
+				<p>我用的跨域请求的方法是CORS,以下是我实现的代码,能够跑起来.<br><a id="more"></a><br>前台: js原生.<br>后台: javaWeb(ssm)<br>前台实现代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;button type=<span class="string">"button"</span> id=<span class="string">"look"</span> name=<span class="string">"button"</span>&gt;查看&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  &lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">  function addURLParam(url, name, value) &#123;</span></span><br><span class="line"><span class="string">    url += (url.indexOf("</span>?<span class="string">") == -1 ? "</span>?<span class="string">" : "</span>&amp;<span class="string">");</span></span><br><span class="line"><span class="string">    url += encodeURIComponent(name) + "</span>=<span class="string">" + encodeURIComponent(value);</span></span><br><span class="line"><span class="string">    return url;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  function createCORSRequest(method, url) &#123;</span></span><br><span class="line"><span class="string">    var xhr = new XMLHttpRequest();</span></span><br><span class="line"><span class="string">    if("</span>withCredentials<span class="string">" in xhr) &#123;</span></span><br><span class="line"><span class="string">      xhr.open(method, url, true);</span></span><br><span class="line"><span class="string">    &#125; else if(typeof XDomainRequest != "</span><span class="literal">undefined</span><span class="string">") &#123;</span></span><br><span class="line"><span class="string">      xhr = new XDomainRequest();</span></span><br><span class="line"><span class="string">      xhr.open(method, url);</span></span><br><span class="line"><span class="string">    &#125; else &#123;</span></span><br><span class="line"><span class="string">      xhr =null;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    return xhr;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    window.onload = function() &#123;</span></span><br><span class="line"><span class="string">      var url ="</span>http:<span class="comment">//16f78c3563.imwork.net/jpjg/personMes/isExist";</span></span><br><span class="line">      <span class="keyword">var</span> look = <span class="built_in">document</span>.getElementById(<span class="string">'look'</span>);</span><br><span class="line">      <span class="keyword">var</span> xhr = createCORSRequest(<span class="string">'get'</span>, url);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(xhr) &#123;</span><br><span class="line">      xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//对request.responseText 进行处理</span></span><br><span class="line">        <span class="keyword">var</span> responseText = xhr.responseText;</span><br><span class="line">        alert(responseText);</span><br><span class="line"></span><br><span class="line">      &#125;;</span><br><span class="line">      xhr.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"An error occurred!"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      xhr.send();</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      alert(<span class="string">'创建xhr失败'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      look.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="number">1</span>);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>后台关键代码(最重要的是: response.addHeader(“Access-Control-Allow-Origin”, “*”);)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/isExist"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">isExist</span><span class="params">(PersonMes personMes, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">	response.addHeader(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>);</span><br><span class="line">	PrintWriter out = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;        </span><br><span class="line">		out = response.getWriter();</span><br><span class="line">	&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">		e.printStackTrace(); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(personMesService.getPersonMesDetail(personMes.getPhone())==<span class="keyword">null</span>) &#123;</span><br><span class="line">		<span class="comment">// 如果没插入成功返回 "0"</span></span><br><span class="line">		out.println(<span class="string">"0"</span>);  </span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">		<span class="comment">//用户信息存在返回 "1"</span></span><br><span class="line">		out.println(<span class="string">"1"</span>); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+			
+		
+		
+	
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/AliPay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ozeriw6bv.bkt.clouddn.com/WeChatPay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Atom-技巧</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CORS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Atom//" class="article-tag-list-link color5">Atom</a>
+        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/19/CORS1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/12/19/webpack3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          React配置WebPack环境
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/12/16/js-ob-array/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript-引用类型详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="CORS1" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyt3J8IJB",
+        conf: "0df7c4ad1c1feff109a5a2e6a86d9c4d"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -327,9 +547,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
